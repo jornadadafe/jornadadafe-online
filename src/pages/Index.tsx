@@ -105,6 +105,9 @@ const Index = () => {
             Como está sua fé hoje?
           </h2>
           <div className="relative">
+            <h3 className="text-sm md:text-base font-medium text-gray-400 mb-2 transition-all duration-500">
+              Conheça a
+            </h3>
             <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight relative z-10 transition-all duration-700">
               <span className="text-gradient-gold block drop-shadow-2xl">JORNADA DE FÉ</span>
               <span className="text-gradient-gold block drop-shadow-2xl">30 DIAS DE REFLEXÕES</span>
@@ -221,7 +224,8 @@ const Index = () => {
           </div>
           
           <h3 className="text-2xl md:text-3xl font-black text-gradient-gold mb-2 drop-shadow-2xl transition-all duration-500">Gabriel Alcântara</h3>
-          <p className="text-lg font-semibold text-gray-300 mb-6">Mentor, Palestrante e Especialista em Transformação</p>
+          <p className="text-lg font-semibold text-gray-300 mb-2">Mentor, Palestrante e Especialista em Transformação</p>
+          <p className="text-sm font-medium text-yellow-400 mb-6 italic">Inspirado na franquia: "Café com Deus Pai"</p>
           
           <div className="max-w-2xl mx-auto space-y-4 mb-8 font-serif text-gray-300">
             <p className="leading-relaxed text-base">

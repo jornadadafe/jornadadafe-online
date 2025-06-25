@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -60,13 +61,24 @@ const Index = () => {
     });
   };
   return <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
-        {/* Blessed Offer Badge - More Subtle */}
+      {/* Enhanced Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        {/* Floating particles */}
+        <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400/20 rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-yellow-500/15 rounded-full animate-bounce-gentle" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-40 left-20 w-2 h-2 bg-yellow-400/25 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-60 right-40 w-1 h-1 bg-yellow-300/30 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-500/20 rounded-full animate-bounce-gentle" style={{animationDelay: '3s'}}></div>
         
+        {/* Gradient overlays */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-900/5 via-transparent to-yellow-800/5 animate-pulse-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+      </div>
 
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative z-10">
         {/* Instability Notice */}
-        <div className="flex items-center gap-2 bg-red-900/20 border border-red-500/30 text-red-300 px-3 py-2 rounded-lg mb-4 text-sm font-medium transition-all duration-300">
+        <div className="flex items-center gap-2 bg-red-900/20 border border-red-500/30 text-red-300 px-3 py-2 rounded-lg mb-4 text-sm font-medium transition-all duration-300 hover:bg-red-900/30">
           <AlertTriangle size={16} />
           <span>Página instável devido ao alto número de acessos</span>
         </div>
@@ -128,7 +140,7 @@ const Index = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 relative">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             BENÇÃOS DA JORNADA DE FÉ
@@ -307,27 +319,31 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[{
-            title: "Dias 1-10: Fundamentos da Fé",
-            items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
-          }, {
-            title: "Dias 11-20: Crescimento Espiritual",
-            items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
-          }, {
-            title: "Dias 21-30: Vida Abundante",
-            items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
-          }].map((module, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+              title: "Dias 1-10: Fundamentos da Fé",
+              items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
+            }, {
+              title: "Dias 11-20: Crescimento Espiritual",
+              items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
+            }, {
+              title: "Dias 21-30: Vida Abundante",
+              items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
+            }].map((module, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-gradient-gold font-black">{module.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {module.items.map((item, idx) => <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
+                    {module.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
                         <Star className="text-yellow-400" size={16} />
                         {item}
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-12">
@@ -361,7 +377,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials - WhatsApp Style */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 relative">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             CONVERSAS REAIS DE WHATSAPP
@@ -369,27 +385,28 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[{
-            name: "Ana Costa",
-            phone: "+55 (11) 9****-****",
-            message: "Gente, esse material mudou minha vida! Em 15 dias já sentia uma paz que não tinha há anos. Minha família toda notou a diferença. Recomendo demais! 🙏✨",
-            time: "14:23",
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-          }, {
-            name: "Carlos Silva",
-            phone: "+55 (21) 9****-****",
-            message: "Cara, eu era bem cético sobre essas coisas... Mas depois de 20 dias fazendo as reflexões, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente.",
-            time: "09:15",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-          }, {
-            name: "Fernanda Lima",
-            phone: "+55 (85) 9****-****",
-            message: "Meninas, comprei pensando 'mais um livro religioso'... Mas que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também. Vale cada centavo! 💕",
-            time: "16:45",
-            image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
-          }].map((testimonial, index) => <div key={index} className="bg-gradient-to-br from-green-800/20 to-green-900/20 p-4 rounded-2xl border border-green-500/30 shadow-2xl transition-all duration-500 hover:scale-105">
+              name: "Ana Costa",
+              phone: "+55 (11) 9****-****",
+              message: "Gente, esse material mudou minha vida! Em 15 dias já sentia uma paz que não tinha há anos. Minha família toda notou a diferença. Recomendo demais! 🙏✨",
+              time: "14:23",
+              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+            }, {
+              name: "Carlos Silva",
+              phone: "+55 (21) 9****-****",
+              message: "Cara, eu era bem cético sobre essas coisas... Mas depois de 20 dias fazendo as reflexões, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente.",
+              time: "09:15",
+              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+            }, {
+              name: "Fernanda Lima",
+              phone: "+55 (85) 9****-****",
+              message: "Meninas, comprei pensando 'mais um livro religioso'... Mas que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também. Vale cada centavo! 💕",
+              time: "16:45",
+              image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
+            }].map((testimonial, index) => (
+              <div key={index} className="bg-gradient-to-br from-green-800/20 to-green-900/20 p-4 rounded-2xl border border-green-500/30 shadow-2xl transition-all duration-500 hover:scale-105">
                 <div className="bg-green-600 p-3 rounded-t-lg mb-3">
                   <div className="flex items-center gap-3">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-white" />
+                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-white object-cover" />
                     <div>
                       <div className="text-white font-bold text-sm">{testimonial.name}</div>
                       <div className="text-green-100 text-xs">{testimonial.phone}</div>
@@ -400,65 +417,68 @@ const Index = () => {
                   <p className="text-gray-800 font-medium text-sm leading-relaxed">{testimonial.message}</p>
                 </div>
                 <div className="text-gray-400 text-xs text-right">{testimonial.time}</div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Enhanced Bonus Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/30 to-black/30">
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/30 to-black/30 relative">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             BÔNUS EXCLUSIVOS - GRÁTIS HOJE!
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {[{
-            title: "Guia Completo de Oração Transformadora",
-            value: "R$ 67,00",
-            description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
-          }, {
-            title: "30 Versículos de Poder para Memorizar",
-            value: "R$ 47,00",
-            description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
-          }, {
-            title: "Playlist Cristã Exclusiva - Adoração Profunda",
-            value: "R$ 37,00",
-            description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
-          }, {
-            title: "Guia de Jejum e Meditação Cristã",
-            value: "R$ 87,00",
-            description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
-          }].map((bonus, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-gradient-gold font-black flex-1">{bonus.title}</CardTitle>
-                    <div className="text-right">
-                      <div className="text-gray-400 line-through">{bonus.value}</div>
-                      <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 rounded text-sm font-black shadow-2xl">
+              title: "Guia Completo de Oração Transformadora",
+              value: "R$ 67,00",
+              description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
+            }, {
+              title: "30 Versículos de Poder para Memorizar",
+              value: "R$ 47,00",
+              description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
+            }, {
+              title: "Playlist Cristã Exclusiva - Adoração Profunda",
+              value: "R$ 37,00",
+              description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
+            }, {
+              title: "Guia de Jejum e Meditação Cristã",
+              value: "R$ 87,00",
+              description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
+            }].map((bonus, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
+                <CardHeader className="pb-3">
+                  <div className="flex justify-between items-start gap-4">
+                    <CardTitle className="text-gradient-gold font-black text-base leading-tight">{bonus.title}</CardTitle>
+                    <div className="text-right flex-shrink-0">
+                      <div className="text-gray-400 line-through text-sm">{bonus.value}</div>
+                      <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 rounded text-xs font-black shadow-xl whitespace-nowrap">
                         GRÁTIS HOJE
                       </div>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="font-semibold text-gray-300">{bonus.description}</p>
+                <CardContent className="pt-0">
+                  <p className="font-medium text-gray-300 text-sm leading-relaxed">{bonus.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center">
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 max-w-md mx-auto shadow-2xl">
-              <h3 className="text-2xl font-black text-gradient-gold mb-4">Valor Total dos Bônus:</h3>
-              <div className="text-3xl font-black text-gray-400 line-through mb-2">R$ 238,00</div>
-              <div className="text-4xl font-black text-green-400 drop-shadow-2xl">GRÁTIS HOJE! 🎉</div>
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 max-w-md mx-auto shadow-2xl">
+              <h3 className="text-xl font-black text-gradient-gold mb-3">Valor Total dos Bônus:</h3>
+              <div className="text-2xl font-black text-gray-400 line-through mb-2">R$ 238,00</div>
+              <div className="text-3xl font-black text-green-400 drop-shadow-2xl">GRÁTIS HOJE! 🎉</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Purchase Section */}
-      <section id="purchase-section" className="py-16 px-4">
+      <section id="purchase-section" className="py-16 px-4 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-black mb-8 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             💰 Qual Valor Para Se Reconectar Com Deus?
@@ -477,7 +497,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
               <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 block text-center shadow-lg shadow-green-500/25 relative overflow-hidden">
-                <span className="relative z-10">💰 PIX (R$ 29,90)</span>
+                <span className="relative z-10">🔷 PIX (R$ 29,90)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
             </div>
@@ -521,21 +541,21 @@ const Index = () => {
           
           <Accordion type="single" collapsible className="space-y-4">
             {[{
-            question: "Como funciona a Jornada de Fé?",
-            answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
-          }, {
-            question: "Preciso ter conhecimento bíblico avançado?",
-            answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
-          }, {
-            question: "Como recebo o material após a compra?",
-            answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
-          }, {
-            question: "Posso presentear alguém com este material?",
-            answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
-          }, {
-            question: "A garantia é real mesmo?",
-            answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
-          }].map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
+              question: "Como funciona a Jornada de Fé?",
+              answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
+            }, {
+              question: "Preciso ter conhecimento bíblico avançado?",
+              answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
+            }, {
+              question: "Como recebo o material após a compra?",
+              answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
+            }, {
+              question: "Posso presentear alguém com este material?",
+              answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
+            }, {
+              question: "A garantia é real mesmo?",
+              answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
+            }].map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
                 <AccordionTrigger className="text-gradient-gold font-black text-left hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>

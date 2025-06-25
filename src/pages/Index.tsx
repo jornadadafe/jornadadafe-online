@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -65,10 +64,16 @@ const Index = () => {
       <div className="fixed inset-0 pointer-events-none">
         {/* Floating particles */}
         <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400/20 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-yellow-500/15 rounded-full animate-bounce-gentle" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-40 left-20 w-2 h-2 bg-yellow-400/25 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-yellow-500/15 rounded-full animate-bounce-gentle" style={{
+        animationDelay: '1s'
+      }}></div>
+        <div className="absolute bottom-40 left-20 w-2 h-2 bg-yellow-400/25 rounded-full animate-float" style={{
+        animationDelay: '2s'
+      }}></div>
         <div className="absolute top-60 right-40 w-1 h-1 bg-yellow-300/30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-500/20 rounded-full animate-bounce-gentle" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-500/20 rounded-full animate-bounce-gentle" style={{
+        animationDelay: '3s'
+      }}></div>
         
         {/* Gradient overlays */}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-900/5 via-transparent to-yellow-800/5 animate-pulse-slow"></div>
@@ -119,9 +124,7 @@ const Index = () => {
               <span className="text-gradient-gold block drop-shadow-2xl">30 DIAS DE REFLEXÕES</span>
             </h1>
           </div>
-          <p className="text-lg md:text-xl font-semibold text-gray-300 mb-4 transition-all duration-500">
-            Fortaleça sua conexão espiritual com reflexões transformadoras
-          </p>
+          
           <div className="flex items-center justify-center gap-2 text-yellow-400 text-sm font-medium italic mb-6">
             <Star size={16} className="animate-pulse" />
             <span>Inspirado na franquia: "Café com Deus Pai"</span>
@@ -334,31 +337,27 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[{
-              title: "Dias 1-10: Fundamentos da Fé",
-              items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
-            }, {
-              title: "Dias 11-20: Crescimento Espiritual",
-              items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
-            }, {
-              title: "Dias 21-30: Vida Abundante",
-              items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
-            }].map((module, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+            title: "Dias 1-10: Fundamentos da Fé",
+            items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
+          }, {
+            title: "Dias 11-20: Crescimento Espiritual",
+            items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
+          }, {
+            title: "Dias 21-30: Vida Abundante",
+            items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
+          }].map((module, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-gradient-gold font-black">{module.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {module.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
+                    {module.items.map((item, idx) => <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
                         <Star className="text-yellow-400" size={16} />
                         {item}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center mt-12">
@@ -406,11 +405,7 @@ const Index = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
               <div className="flex items-center mb-6">
                 <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=80&h=80&fit=crop&crop=face&auto=format" 
-                    alt="Ana Costa" 
-                    className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl"
-                  />
+                  <img alt="Ana Costa" className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl" src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" />
                   <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
                     <CheckCircle size={12} className="text-white" />
                   </div>
@@ -419,9 +414,7 @@ const Index = () => {
                   <h4 className="font-black text-gradient-gold text-lg">Ana Costa</h4>
                   <p className="text-gray-400 text-sm font-semibold">Empresária • São Paulo</p>
                   <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
                   </div>
                 </div>
               </div>
@@ -435,11 +428,7 @@ const Index = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
               <div className="flex items-center mb-6">
                 <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" 
-                    alt="Carlos Silva" 
-                    className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl"
-                  />
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl" />
                   <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
                     <CheckCircle size={12} className="text-white" />
                   </div>
@@ -448,9 +437,7 @@ const Index = () => {
                   <h4 className="font-black text-gradient-gold text-lg">Carlos Silva</h4>
                   <p className="text-gray-400 text-sm font-semibold">Engenheiro • Rio de Janeiro</p>
                   <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
                   </div>
                 </div>
               </div>
@@ -464,11 +451,7 @@ const Index = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
               <div className="flex items-center mb-6">
                 <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face&auto=format" 
-                    alt="Fernanda Lima" 
-                    className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl"
-                  />
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl" />
                   <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
                     <CheckCircle size={12} className="text-white" />
                   </div>
@@ -477,9 +460,7 @@ const Index = () => {
                   <h4 className="font-black text-gradient-gold text-lg">Fernanda Lima</h4>
                   <p className="text-gray-400 text-sm font-semibold">Professora • Fortaleza</p>
                   <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
                   </div>
                 </div>
               </div>
@@ -521,23 +502,22 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {[{
-              title: "Guia Completo de Oração Transformadora",
-              value: "R$ 67,00",
-              description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
-            }, {
-              title: "30 Versículos de Poder para Memorizar",
-              value: "R$ 47,00",
-              description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
-            }, {
-              title: "Playlist Cristã Exclusiva - Adoração Profunda",
-              value: "R$ 37,00",
-              description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
-            }, {
-              title: "Guia de Jejum e Meditação Cristã",
-              value: "R$ 87,00",
-              description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
-            }].map((bonus, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
+            title: "Guia Completo de Oração Transformadora",
+            value: "R$ 67,00",
+            description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
+          }, {
+            title: "30 Versículos de Poder para Memorizar",
+            value: "R$ 47,00",
+            description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
+          }, {
+            title: "Playlist Cristã Exclusiva - Adoração Profunda",
+            value: "R$ 37,00",
+            description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
+          }, {
+            title: "Guia de Jejum e Meditação Cristã",
+            value: "R$ 87,00",
+            description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
+          }].map((bonus, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
                 <CardHeader className="pb-3">
                   <div className="flex justify-between items-start gap-4">
                     <CardTitle className="text-gradient-gold font-black text-base leading-tight">{bonus.title}</CardTitle>
@@ -552,8 +532,7 @@ const Index = () => {
                 <CardContent className="pt-0">
                   <p className="font-medium text-gray-300 text-sm leading-relaxed">{bonus.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center">
@@ -630,21 +609,21 @@ const Index = () => {
           
           <Accordion type="single" collapsible className="space-y-4">
             {[{
-              question: "Como funciona a Jornada de Fé?",
-              answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
-            }, {
-              question: "Preciso ter conhecimento bíblico avançado?",
-              answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
-            }, {
-              question: "Como recebo o material após a compra?",
-              answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
-            }, {
-              question: "Posso presentear alguém com este material?",
-              answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
-            }, {
-              question: "A garantia é real mesmo?",
-              answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
-            }].map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
+            question: "Como funciona a Jornada de Fé?",
+            answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
+          }, {
+            question: "Preciso ter conhecimento bíblico avançado?",
+            answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
+          }, {
+            question: "Como recebo o material após a compra?",
+            answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
+          }, {
+            question: "Posso presentear alguém com este material?",
+            answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
+          }, {
+            question: "A garantia é real mesmo?",
+            answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
+          }].map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
                 <AccordionTrigger className="text-gradient-gold font-black text-left hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>

@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
-import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin, AlertTriangle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -54,146 +53,145 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
-        {/* Blessed Offer Badge */}
-        <div className="animate-pulse-glow bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-3 rounded-full mb-6 font-black text-sm uppercase tracking-wider shadow-2xl shadow-yellow-500/50 transition-all duration-500 hover:scale-105">
-          ✨ VOCÊ FOI ABENÇOADO COM ESTA OFERTA ✨
+        {/* Blessed Offer Badge - More Subtle */}
+        <div className="bg-gradient-to-r from-yellow-400/80 to-yellow-500/80 text-black px-4 py-2 rounded-lg mb-6 font-semibold text-sm tracking-wide shadow-lg transition-all duration-500 hover:scale-102 border border-yellow-300/50">
+          ✨ Oferta Especial Disponível
         </div>
 
-        {/* Timer */}
-        <div className="flex gap-4 mb-8">
-          <div className="bg-gradient-to-br from-red-600 to-red-800 p-4 rounded-xl text-center min-w-[80px] border-2 border-red-400 shadow-2xl transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-black text-white">{String(timeLeft.hours).padStart(2, '0')}</div>
+        {/* Instability Notice */}
+        <div className="flex items-center gap-2 bg-red-900/20 border border-red-500/30 text-red-300 px-3 py-2 rounded-lg mb-4 text-sm font-medium transition-all duration-300">
+          <AlertTriangle size={16} />
+          <span>Página instável devido ao alto número de acessos</span>
+        </div>
+
+        {/* Timer - Smaller */}
+        <div className="flex gap-3 mb-6">
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-3 rounded-lg text-center min-w-[60px] border border-red-400/50 shadow-xl transition-transform duration-300 hover:scale-105">
+            <div className="text-lg font-black text-white">{String(timeLeft.hours).padStart(2, '0')}</div>
             <div className="text-xs font-bold text-red-200">HORAS</div>
           </div>
-          <div className="bg-gradient-to-br from-red-600 to-red-800 p-4 rounded-xl text-center min-w-[80px] border-2 border-red-400 shadow-2xl transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-black text-white">{String(timeLeft.minutes).padStart(2, '0')}</div>
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-3 rounded-lg text-center min-w-[60px] border border-red-400/50 shadow-xl transition-transform duration-300 hover:scale-105">
+            <div className="text-lg font-black text-white">{String(timeLeft.minutes).padStart(2, '0')}</div>
             <div className="text-xs font-bold text-red-200">MIN</div>
           </div>
-          <div className="bg-gradient-to-br from-red-600 to-red-800 p-4 rounded-xl text-center min-w-[80px] border-2 border-red-400 shadow-2xl transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-black text-white">{String(timeLeft.seconds).padStart(2, '0')}</div>
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-3 rounded-lg text-center min-w-[60px] border border-red-400/50 shadow-xl transition-transform duration-300 hover:scale-105">
+            <div className="text-lg font-black text-white">{String(timeLeft.seconds).padStart(2, '0')}</div>
             <div className="text-xs font-bold text-red-200">SEG</div>
           </div>
         </div>
 
         {/* Enhanced Headline */}
         <div className="text-center mb-8">
-          <h2 className="text-lg md:text-xl font-black text-yellow-400 mb-4">
+          <h2 className="text-lg md:text-xl font-semibold text-yellow-400 mb-4 transition-all duration-500">
             Como está sua fé hoje?
           </h2>
           <div className="relative">
-            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight relative z-10">
+            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight relative z-10 transition-all duration-700">
               <span className="text-gradient-gold block drop-shadow-2xl">JORNADA DE FÉ</span>
               <span className="text-gradient-gold block drop-shadow-2xl">30 DIAS DE REFLEXÕES</span>
             </h1>
           </div>
-          <p className="text-xl md:text-2xl font-bold text-gray-300 mb-6">
-            Transforme sua vida espiritual com reflexões poderosas 🔥
+          <p className="text-lg md:text-xl font-semibold text-gray-300 mb-6 transition-all duration-500">
+            Fortaleça sua conexão espiritual com reflexões transformadoras
           </p>
         </div>
 
         {/* Enhanced Product Image as Book Cover */}
         <div className="relative mb-8 perspective-1000">
-          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white px-2 py-1 rounded-full text-xs font-bold z-10 animate-bounce-gentle shadow-2xl border border-green-300">
-            🏆 CAMPEÃO EM VENDAS
+          <div className="absolute -top-1 -right-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 rounded-lg text-xs font-semibold z-10 animate-bounce-gentle shadow-lg border border-green-300/50 transition-all duration-300">
+            🏆 Mais Vendido
           </div>
           <div className="relative transform transition-all duration-500 hover:scale-105 book-3d">
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-yellow-500/30 to-yellow-600/20 rounded-xl blur-xl"></div>
-            <div className="relative bg-gradient-to-br from-gray-800 to-black p-2 rounded-xl shadow-2xl border border-yellow-400/50">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-yellow-500/30 to-yellow-600/20 rounded-xl blur-xl animate-pulse-glow"></div>
+            <div className="relative bg-gradient-to-br from-gray-800 to-black p-2 rounded-xl shadow-2xl border border-yellow-400/50 transition-all duration-500 hover:border-yellow-400/80">
               <img 
                 src="/lovable-uploads/e9fac0f7-2be2-4d7d-8821-bdae5c5eb525.png" 
                 alt="Jornada de Fé - 30 Dias de Reflexões"
-                className="w-[200px] h-[300px] md:w-[280px] md:h-[380px] object-cover rounded-lg shadow-inner"
+                className="w-[200px] h-[300px] md:w-[280px] md:h-[380px] object-cover rounded-lg shadow-inner transition-all duration-500"
               />
               <div className="absolute inset-2 bg-gradient-to-t from-black/30 via-transparent to-yellow-400/10 rounded-lg pointer-events-none"></div>
             </div>
           </div>
         </div>
 
-        {/* Pricing */}
-        <div className="text-center mb-8">
-          <div className="text-gray-400 line-through text-xl mb-2">De R$ 97,00</div>
-          <div className="text-4xl md:text-5xl font-black text-gradient-gold mb-2 drop-shadow-2xl">R$ 29,90</div>
-          <div className="text-lg font-bold text-green-400">ou 3x de R$ 9,97 sem juros</div>
-        </div>
-
-        {/* Enhanced CTA Button */}
+        {/* Smaller CTA Button */}
         <button 
           onClick={scrollTo30Days}
-          className="btn-gold text-xl md:text-2xl mb-8 w-full max-w-md shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300"
+          className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg mb-8 max-w-sm relative overflow-hidden"
         >
-          <span className="relative z-10">🙏 QUERO TRANSFORMAR MINHA FÉ AGORA! 🙏</span>
+          <span className="relative z-10">🙏 Iniciar Minha Jornada</span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
         </button>
 
         {/* Animated Arrow */}
-        <ArrowDown className="text-yellow-400 animate-bounce-gentle drop-shadow-2xl" size={32} />
+        <ArrowDown className="text-yellow-400 animate-bounce-gentle drop-shadow-2xl transition-all duration-300" size={28} />
       </section>
 
       {/* Benefits Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl">
-            TESOUROS DA JORNADA DE FÉ
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
+            BENÇÃOS DA JORNADA DE FÉ
           </h2>
           
           <div className="space-y-12">
             {/* Benefit 1 */}
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="w-full md:w-1/2">
-                <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+                <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-yellow-500/10">
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-2xl">
-                      <Heart className="text-black" size={32} />
+                    <div className="w-14 h-14 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-xl transition-all duration-300">
+                      <Heart className="text-black" size={28} />
                     </div>
-                    <h3 className="text-2xl font-black text-gradient-gold">Transformação Diária</h3>
+                    <h3 className="text-xl font-black text-gradient-gold">Transformação Espiritual</h3>
                   </div>
-                  <p className="text-gray-300 font-semibold">
-                    30 dias de reflexões transformadoras baseadas nas Escrituras, com versículos e desafios práticos.
+                  <p className="text-gray-300 font-medium leading-relaxed">
+                    30 dias de reflexões baseadas nas Escrituras com desafios práticos.
                   </p>
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="text-8xl animate-float drop-shadow-2xl">📖</div>
+                <div className="text-6xl animate-float drop-shadow-2xl transition-all duration-500">📖</div>
               </div>
             </div>
 
             {/* Benefit 2 */}
             <div className="flex flex-col md:flex-row-reverse items-center gap-8">
               <div className="w-full md:w-1/2">
-                <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+                <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-yellow-500/10">
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-2xl">
-                      <Star className="text-black" size={32} />
+                    <div className="w-14 h-14 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-xl transition-all duration-300">
+                      <Star className="text-black" size={28} />
                     </div>
-                    <h3 className="text-2xl font-black text-gradient-gold">Prático e Simples</h3>
+                    <h3 className="text-xl font-black text-gradient-gold">Simples e Eficaz</h3>
                   </div>
-                  <p className="text-gray-300 font-semibold">
-                    Desafios práticos como "ore por alguém", "agradeça por 3 coisas", "perdoe uma mágoa". Simples, mas transformador.
+                  <p className="text-gray-300 font-medium leading-relaxed">
+                    Desafios práticos transformadores para fortalecer sua fé diariamente.
                   </p>
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="text-8xl animate-float drop-shadow-2xl">🙏</div>
+                <div className="text-6xl animate-float drop-shadow-2xl transition-all duration-500">🙏</div>
               </div>
             </div>
 
             {/* Benefit 3 */}
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="w-full md:w-1/2">
-                <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+                <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl hover:shadow-yellow-500/10">
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-2xl">
-                      <Gift className="text-black" size={32} />
+                    <div className="w-14 h-14 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mr-4 shadow-xl transition-all duration-300">
+                      <Gift className="text-black" size={28} />
                     </div>
-                    <h3 className="text-2xl font-black text-gradient-gold">Para Toda Família</h3>
+                    <h3 className="text-xl font-black text-gradient-gold">Para Toda Família</h3>
                   </div>
-                  <p className="text-gray-300 font-semibold">
-                    Linguagem acessível para todas as idades. Pode ser lido por crianças, jovens e adultos.
+                  <p className="text-gray-300 font-medium leading-relaxed">
+                    Linguagem acessível para crianças, jovens e adultos.
                   </p>
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="text-8xl animate-float drop-shadow-2xl">👨‍👩‍👧‍👦</div>
+                <div className="text-6xl animate-float drop-shadow-2xl transition-all duration-500">👨‍👩‍👧‍👦</div>
               </div>
             </div>
           </div>
@@ -201,27 +199,27 @@ const Index = () => {
       </section>
 
       {/* Author Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/50 to-black/50">
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/40 to-black/40">
         <div className="max-w-4xl mx-auto text-center">
           <div className="relative inline-block mb-6">
             <img 
               src="/lovable-uploads/da2a4bc8-a689-4bbb-9088-33249e6d3775.png"
               alt="Gabriel Alcântara"
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-400 mx-auto object-cover shadow-2xl transition-transform duration-300 hover:scale-105"
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-400 mx-auto object-cover shadow-2xl transition-transform duration-500 hover:scale-105"
             />
-            <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-1 py-0.5 rounded-full text-xs font-bold shadow-2xl">
+            <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-2 py-1 rounded-full text-xs font-semibold shadow-lg transition-all duration-300">
               +3 Anos
             </div>
           </div>
           
-          <h3 className="text-2xl md:text-3xl font-black text-gradient-gold mb-2 drop-shadow-2xl">Gabriel Alcântara</h3>
-          <p className="text-lg font-bold text-gray-300 mb-6">Mentor, Palestrante e Especialista em Transformação</p>
+          <h3 className="text-2xl md:text-3xl font-black text-gradient-gold mb-2 drop-shadow-2xl transition-all duration-500">Gabriel Alcântara</h3>
+          <p className="text-lg font-semibold text-gray-300 mb-6">Mentor, Palestrante e Especialista em Transformação</p>
           
           <div className="max-w-2xl mx-auto space-y-4 mb-8 font-serif text-gray-300">
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-base">
               Gabriel Alcântara é mentor, palestrante e especialista em comunicação, performance e mentalidade empreendedora. Ao longo dos anos, tem ajudado pessoas e negócios a se transformarem por meio de técnicas precisas, foco estratégico e uma linguagem que gera ação imediata.
             </p>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-base">
               Este conteúdo foi criado com base em pesquisa, experiências reais e foco no que dá resultado, sem enrolação e sem pressão desnecessária. Como cristão, Gabriel acredita que a fé é o alicerce de toda transformação verdadeira, e que independente da religião, fortalecer nossa espiritualidade nos torna pessoas melhores.
             </p>
           </div>
@@ -248,7 +246,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Problems */}
-            <div className="bg-gradient-to-br from-red-900/50 to-red-800/50 p-8 rounded-2xl border border-red-500/30 shadow-2xl transition-transform duration-300 hover:scale-105">
+            <div className="bg-gradient-to-br from-red-900/30 to-red-800/30 p-8 rounded-2xl border border-red-500/20 shadow-2xl transition-transform duration-500 hover:scale-105">
               <h3 className="text-2xl font-black text-red-400 mb-6 text-center">❌ Sua Realidade Hoje</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -275,7 +273,7 @@ const Index = () => {
             </div>
 
             {/* Solutions */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+            <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 hover:scale-105 transition-transform duration-500 shadow-2xl">
               <h3 className="text-2xl font-black text-gradient-gold mb-6 text-center">✅ Sua Nova Realidade</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -305,9 +303,9 @@ const Index = () => {
       </section>
 
       {/* 30 Days Content */}
-      <section id="30-days-section" className="py-16 px-4 bg-gradient-to-br from-gray-900/30 to-black/30">
+      <section id="30-days-section" className="py-16 px-4 bg-gradient-to-br from-gray-900/20 to-black/20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             30 DIAS DE TRANSFORMAÇÃO ESPIRITUAL
           </h2>
           
@@ -359,73 +357,74 @@ const Index = () => {
           <div className="text-center mt-12">
             <button 
               onClick={scrollToPurchase}
-              className="btn-gold text-xl md:text-2xl w-full max-w-md shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300"
+              className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg max-w-sm relative overflow-hidden"
             >
-              <span className="relative z-10">🛒 GARANTIR MINHA JORNADA AGORA!</span>
+              <span className="relative z-10">🛒 Iniciar Jornada Agora!</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
             </button>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials - WhatsApp Style */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl">
-            VIDAS TRANSFORMADAS PELA JORNADA DE FÉ
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
+            CONVERSAS REAIS DE WHATSAPP
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Maria Santos",
-                result: "Paz Interior Encontrada",
-                text: "Em 30 dias minha vida mudou completamente. Encontrei a paz que tanto procurava e minha fé se fortaleceu de uma maneira incrível. Recomendo para todos!",
-                image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
+                name: "Ana Costa",
+                phone: "+55 (11) 9****-****",
+                message: "Gente, esse material mudou minha vida! Em 15 dias já sentia uma paz que não tinha há anos. Minha família toda notou a diferença. Recomendo demais! 🙏✨",
+                time: "14:23",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
               },
               {
-                name: "João Silva",
-                result: "Fé Inabalável",
-                text: "Como pai de família, precisava de direção. Este material me ajudou a ser um melhor marido, pai e cristão. Minha família toda foi impactada positivamente.",
+                name: "Carlos Silva",
+                phone: "+55 (21) 9****-****",
+                message: "Cara, eu era bem cético sobre essas coisas... Mas depois de 20 dias fazendo as reflexões, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente.",
+                time: "09:15",
                 image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
               },
               {
-                name: "Ana Costa",
-                result: "Relacionamento com Deus",
-                text: "Estava longe de Deus há anos. Estas reflexões me reconectaram com o Pai de uma forma que nunca imaginei. Sou uma nova pessoa em Cristo!",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+                name: "Fernanda Lima",
+                phone: "+55 (85) 9****-****",
+                message: "Meninas, comprei pensando 'mais um livro religioso'... Mas que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também. Vale cada centavo! 💕",
+                time: "16:45",
+                image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
-                <CardHeader className="text-center">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-yellow-400 shadow-2xl"
-                  />
-                  <CardTitle className="text-gradient-gold font-black">{testimonial.name}</CardTitle>
-                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-sm font-black shadow-2xl">
-                    {testimonial.result}
+              <div key={index} className="bg-gradient-to-br from-green-800/20 to-green-900/20 p-4 rounded-2xl border border-green-500/30 shadow-2xl transition-all duration-500 hover:scale-105">
+                <div className="bg-green-600 p-3 rounded-t-lg mb-3">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-10 h-10 rounded-full border-2 border-white"
+                    />
+                    <div>
+                      <div className="text-white font-bold text-sm">{testimonial.name}</div>
+                      <div className="text-green-100 text-xs">{testimonial.phone}</div>
+                    </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex justify-center mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="text-yellow-400 fill-current" size={20} />
-                    ))}
-                  </div>
-                  <p className="font-semibold text-gray-300 text-center italic">"{testimonial.text}"</p>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="bg-white p-3 rounded-lg mb-2">
+                  <p className="text-gray-800 font-medium text-sm leading-relaxed">{testimonial.message}</p>
+                </div>
+                <div className="text-gray-400 text-xs text-right">{testimonial.time}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Enhanced Bonus Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/50 to-black/50">
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/30 to-black/30">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             BÔNUS EXCLUSIVOS - GRÁTIS HOJE!
           </h2>
           
@@ -447,12 +446,12 @@ const Index = () => {
                 description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
               },
               {
-                title: "Manual Prático de Jejum e Oração",
+                title: "Guia de Jejum e Meditação Cristã",
                 value: "R$ 87,00",
-                description: "Guia completo para praticar jejum e oração de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
+                description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
               }
             ].map((bonus, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <CardTitle className="text-gradient-gold font-black flex-1">{bonus.title}</CardTitle>
@@ -484,14 +483,14 @@ const Index = () => {
       {/* Purchase Section */}
       <section id="purchase-section" className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-8 text-gradient-gold drop-shadow-2xl">
-            🌟 O Quanto Você Quer Ter Fé? 🌟
+          <h2 className="text-2xl md:text-3xl font-black mb-8 text-gradient-gold drop-shadow-2xl transition-all duration-700">
+            💰 Qual Valor Para Se Reconectar Com Deus?
           </h2>
           
-          <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 mb-8 shadow-2xl">
+          <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 mb-8 shadow-2xl transition-all duration-500">
             <div className="mb-6">
               <div className="text-gray-400 line-through text-2xl mb-2">De R$ 335,90</div>
-              <div className="text-5xl md:text-6xl font-black text-gradient-gold mb-4 drop-shadow-2xl">R$ 29,90</div>
+              <div className="text-5xl md:text-6xl font-black text-gradient-gold mb-4 drop-shadow-2xl transition-all duration-700">R$ 29,90</div>
               <div className="text-xl font-bold text-green-400">Economia de R$ 305,00 (91% OFF)</div>
             </div>
             
@@ -500,7 +499,7 @@ const Index = () => {
                 href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold block text-center shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 block text-center relative overflow-hidden"
               >
                 <span className="relative z-10">💳 CARTÃO (3x R$ 9,97)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
@@ -509,9 +508,9 @@ const Index = () => {
                 href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 block text-center shadow-2xl shadow-green-500/50 relative overflow-hidden"
+                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 block text-center shadow-lg shadow-green-500/25 relative overflow-hidden"
               >
-                <span className="relative z-10">🟢 PIX (R$ 29,90)</span>
+                <span className="relative z-10">💰 PIX (R$ 29,90)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
             </div>
@@ -531,9 +530,9 @@ const Index = () => {
       </section>
 
       {/* Guarantee Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-green-900/30 to-green-800/30">
+      <section className="py-16 px-4 bg-gradient-to-br from-green-900/20 to-green-800/20">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border-2 border-green-400 shadow-2xl transition-transform duration-300 hover:scale-105">
+          <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-green-400/30 shadow-2xl transition-transform duration-500 hover:scale-105">
             <Shield className="text-green-400 mx-auto mb-4 drop-shadow-2xl" size={64} />
             <h3 className="text-3xl font-black text-green-400 mb-4 drop-shadow-2xl">GARANTIA DE 7 DIAS</h3>
             <p className="text-xl font-bold text-gray-300 mb-4">
@@ -549,7 +548,7 @@ const Index = () => {
       {/* FAQ Section */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
             PERGUNTAS FREQUENTES
           </h2>
           
@@ -576,7 +575,7 @@ const Index = () => {
                 answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
               }
             ].map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl">
+              <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
                 <AccordionTrigger className="text-gradient-gold font-black text-left hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
@@ -590,9 +589,9 @@ const Index = () => {
       </section>
 
       {/* VIP List Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/50 to-black/50">
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-900/30 to-black/30">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 shadow-2xl">
+          <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 shadow-2xl transition-all duration-500">
             <h2 className="text-3xl md:text-4xl font-black text-center mb-6 text-gradient-gold drop-shadow-2xl">
               FAÇA PARTE DA NOSSA LISTA VIP
             </h2>

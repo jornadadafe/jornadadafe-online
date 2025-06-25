@@ -64,7 +64,7 @@
   }
   
   .card-dark {
-    @apply bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm;
+    @apply bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm;
   }
   
   .btn-gold {
@@ -132,6 +132,45 @@
   .animate-shimmer {
     animation: shimmer 2s infinite;
   }
+
+  .hover\:scale-102:hover {
+    transform: scale(1.02);
+  }
+
+  .book-3d {
+    transform-style: preserve-3d;
+  }
+
+  .book-3d:hover {
+    transform: rotateY(5deg) rotateX(2deg);
+  }
+
+  /* Enhanced transitions for professional look */
+  .transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+
+  .duration-500 {
+    transition-duration: 500ms;
+  }
+
+  .duration-700 {
+    transition-duration: 700ms;
+  }
+
+  /* Professional gradient overlays */
+  .backdrop-blur-professional {
+    backdrop-filter: blur(12px) saturate(180%);
+  }
+
+  /* Smooth scale animations */
+  .hover\:scale-102:hover {
+    transform: scale(1.02);
+  }
 }
 
 /* Scrollbar customization */
@@ -149,4 +188,24 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply from-yellow-500 to-yellow-700;
+}
+
+/* Professional focus states */
+*:focus {
+  outline: 2px solid rgba(251, 191, 36, 0.5);
+  outline-offset: 2px;
+}
+
+/* Enhanced button states */
+button {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Professional card hover effects */
+.hover\:shadow-glow:hover {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
 }

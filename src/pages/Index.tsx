@@ -105,17 +105,25 @@ const Index = () => {
             Como está sua fé hoje?
           </h2>
           <div className="relative">
-            <h3 className="text-sm md:text-base font-medium text-gray-400 mb-2 transition-all duration-500">
-              Conheça a
-            </h3>
+            <div className="mb-4">
+              <h3 className="text-base md:text-lg font-bold text-gray-300 mb-1 transition-all duration-500 tracking-wide">
+                Conheça a revolucionária
+              </h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-2 animate-pulse"></div>
+            </div>
             <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight relative z-10 transition-all duration-700">
               <span className="text-gradient-gold block drop-shadow-2xl">JORNADA DE FÉ</span>
               <span className="text-gradient-gold block drop-shadow-2xl">30 DIAS DE REFLEXÕES</span>
             </h1>
           </div>
-          <p className="text-lg md:text-xl font-semibold text-gray-300 mb-6 transition-all duration-500">
+          <p className="text-lg md:text-xl font-semibold text-gray-300 mb-4 transition-all duration-500">
             Fortaleça sua conexão espiritual com reflexões transformadoras
           </p>
+          <div className="flex items-center justify-center gap-2 text-yellow-400 text-sm font-medium italic mb-6">
+            <Star size={16} className="animate-pulse" />
+            <span>Inspirado na franquia: "Café com Deus Pai"</span>
+            <Star size={16} className="animate-pulse" />
+          </div>
         </div>
 
         {/* Enhanced Product Image as Book Cover */}

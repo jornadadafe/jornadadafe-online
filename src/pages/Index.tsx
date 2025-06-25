@@ -77,10 +77,13 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative z-10">
-        {/* Instability Notice */}
-        <div className="flex items-center gap-2 bg-red-900/20 border border-red-500/30 text-red-300 px-3 py-2 rounded-lg mb-4 text-sm font-medium transition-all duration-300 hover:bg-red-900/30">
-          <AlertTriangle size={16} />
-          <span>Página instável devido ao alto número de acessos</span>
+        {/* Enhanced Instability Notice */}
+        <div className="flex items-center gap-3 bg-red-900/30 border border-red-500/50 text-red-300 px-4 py-3 rounded-xl mb-6 text-sm font-bold transition-all duration-300 hover:bg-red-900/40 animate-pulse-glow max-w-md text-center shadow-2xl">
+          <AlertTriangle size={20} className="animate-bounce text-red-400" />
+          <div>
+            <div className="font-black text-red-200">⚠️ PÁGINA INSTÁVEL</div>
+            <div className="text-xs text-red-300">Alto tráfego pode derrubar a página e você perder esta oferta!</div>
+          </div>
         </div>
 
         {/* Timer - Smaller */}
@@ -388,49 +391,123 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials - WhatsApp Style */}
-      <section className="py-16 px-4 relative">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
-            CONVERSAS REAIS DE WHATSAPP
+      {/* Testimonials - New Professional Design */}
+      <section className="py-20 px-4 relative bg-gradient-to-br from-gray-900/10 to-black/10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-gradient-gold drop-shadow-2xl">
+            VIDAS TRANSFORMADAS
           </h2>
+          <p className="text-center text-gray-300 font-semibold mb-12 text-lg">
+            Mais de 1.000 pessoas já transformaram suas vidas com nossa Jornada de Fé
+          </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[{
-              name: "Ana Costa",
-              phone: "+55 (11) 9****-****",
-              message: "Gente, esse material mudou minha vida! Em 15 dias já sentia uma paz que não tinha há anos. Minha família toda notou a diferença. Recomendo demais! 🙏✨",
-              time: "14:23",
-              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-            }, {
-              name: "Carlos Silva",
-              phone: "+55 (21) 9****-****",
-              message: "Cara, eu era bem cético sobre essas coisas... Mas depois de 20 dias fazendo as reflexões, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente.",
-              time: "09:15",
-              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-            }, {
-              name: "Fernanda Lima",
-              phone: "+55 (85) 9****-****",
-              message: "Meninas, comprei pensando 'mais um livro religioso'... Mas que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também. Vale cada centavo! 💕",
-              time: "16:45",
-              image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
-            }].map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-green-800/20 to-green-900/20 p-4 rounded-2xl border border-green-500/30 shadow-2xl transition-all duration-500 hover:scale-105">
-                <div className="bg-green-600 p-3 rounded-t-lg mb-3">
-                  <div className="flex items-center gap-3">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                    <div>
-                      <div className="text-white font-bold text-sm">{testimonial.name}</div>
-                      <div className="text-green-100 text-xs">{testimonial.phone}</div>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Testimonial 1 - Ana */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
+              <div className="flex items-center mb-6">
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=80&h=80&fit=crop&crop=face&auto=format" 
+                    alt="Ana Costa" 
+                    className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl"
+                  />
+                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                    <CheckCircle size={12} className="text-white" />
                   </div>
                 </div>
-                <div className="bg-white p-3 rounded-lg mb-2">
-                  <p className="text-gray-800 font-medium text-sm leading-relaxed">{testimonial.message}</p>
+                <div className="ml-4">
+                  <h4 className="font-black text-gradient-gold text-lg">Ana Costa</h4>
+                  <p className="text-gray-400 text-sm font-semibold">Empresária • São Paulo</p>
+                  <div className="flex gap-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
                 </div>
-                <div className="text-gray-400 text-xs text-right">{testimonial.time}</div>
               </div>
-            ))}
+              <blockquote className="text-gray-300 font-medium italic leading-relaxed text-base mb-4">
+                "Em apenas 15 dias senti uma paz que não tinha há anos. Minha família toda notou a diferença no meu comportamento. Este material realmente funciona!"
+              </blockquote>
+              <div className="text-yellow-400 text-sm font-bold">✅ Verificado • Compra realizada em Nov/2024</div>
+            </div>
+
+            {/* Testimonial 2 - Carlos */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
+              <div className="flex items-center mb-6">
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" 
+                    alt="Carlos Silva" 
+                    className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl"
+                  />
+                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                    <CheckCircle size={12} className="text-white" />
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-black text-gradient-gold text-lg">Carlos Silva</h4>
+                  <p className="text-gray-400 text-sm font-semibold">Engenheiro • Rio de Janeiro</p>
+                  <div className="flex gap-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <blockquote className="text-gray-300 font-medium italic leading-relaxed text-base mb-4">
+                "Eu era cético sobre essas coisas... Mas depois de 20 dias, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente."
+              </blockquote>
+              <div className="text-yellow-400 text-sm font-bold">✅ Verificado • Compra realizada em Dez/2024</div>
+            </div>
+
+            {/* Testimonial 3 - Fernanda */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
+              <div className="flex items-center mb-6">
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face&auto=format" 
+                    alt="Fernanda Lima" 
+                    className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl"
+                  />
+                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                    <CheckCircle size={12} className="text-white" />
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-black text-gradient-gold text-lg">Fernanda Lima</h4>
+                  <p className="text-gray-400 text-sm font-semibold">Professora • Fortaleza</p>
+                  <div className="flex gap-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <blockquote className="text-gray-300 font-medium italic leading-relaxed text-base mb-4">
+                "Comprei pensando 'mais um livro religioso'... Que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também!"
+              </blockquote>
+              <div className="text-yellow-400 text-sm font-bold">✅ Verificado • Compra realizada em Dez/2024</div>
+            </div>
+          </div>
+
+          {/* Social Proof Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-3xl font-black text-gradient-gold mb-2">1,000+</div>
+              <div className="text-gray-300 font-bold text-sm">Vidas Transformadas</div>
+            </div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-3xl font-black text-gradient-gold mb-2">4.9⭐</div>
+              <div className="text-gray-300 font-bold text-sm">Avaliação Média</div>
+            </div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-3xl font-black text-gradient-gold mb-2">98%</div>
+              <div className="text-gray-300 font-bold text-sm">Recomendam</div>
+            </div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-3xl font-black text-gradient-gold mb-2">30</div>
+              <div className="text-gray-300 font-bold text-sm">Dias de Conteúdo</div>
+            </div>
           </div>
         </div>
       </section>

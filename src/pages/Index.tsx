@@ -63,9 +63,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
         {/* Blessed Offer Badge - More Subtle */}
-        <div className="bg-gradient-to-r from-yellow-400/80 to-yellow-500/80 text-black px-4 py-2 rounded-lg mb-6 font-semibold text-sm tracking-wide shadow-lg transition-all duration-500 hover:scale-102 border border-yellow-300/50">
-          ✨ Oferta Especial Disponível
-        </div>
+        
 
         {/* Instability Notice */}
         <div className="flex items-center gap-2 bg-red-900/20 border border-red-500/30 text-red-300 px-3 py-2 rounded-lg mb-4 text-sm font-medium transition-all duration-300">

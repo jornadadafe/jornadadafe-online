@@ -6,51 +6,60 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
 const Index = () => {
-  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
-  const [formData, setFormData] = useState({ name: '', email: '', suggestion: '' });
-
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    suggestion: ''
+  });
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
       const midnight = new Date();
       midnight.setHours(23, 59, 59, 999);
-      
       if (now > midnight) {
         midnight.setDate(midnight.getDate() + 1);
         midnight.setHours(23, 59, 59, 999);
       }
-      
       const diff = midnight.getTime() - now.getTime();
       const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      
-      setTimeLeft({ hours, minutes, seconds });
+      const minutes = Math.floor(diff % (1000 * 60 * 60) / (1000 * 60));
+      const seconds = Math.floor(diff % (1000 * 60) / 1000);
+      setTimeLeft({
+        hours,
+        minutes,
+        seconds
+      });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
       toast.success('Parabéns! Você foi adicionado à nossa Lista VIP! 🎉');
-      setFormData({ name: '', email: '', suggestion: '' });
+      setFormData({
+        name: '',
+        email: '',
+        suggestion: ''
+      });
     }
   };
-
   const scrollTo30Days = () => {
-    document.getElementById('30-days-section')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('30-days-section')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const scrollToPurchase = () => {
-    document.getElementById('purchase-section')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('purchase-section')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+  return <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
         {/* Blessed Offer Badge - More Subtle */}
@@ -104,21 +113,14 @@ const Index = () => {
           <div className="relative transform transition-all duration-500 hover:scale-105 book-3d">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-yellow-500/30 to-yellow-600/20 rounded-xl blur-xl animate-pulse-glow"></div>
             <div className="relative bg-gradient-to-br from-gray-800 to-black p-2 rounded-xl shadow-2xl border border-yellow-400/50 transition-all duration-500 hover:border-yellow-400/80">
-              <img 
-                src="/lovable-uploads/e9fac0f7-2be2-4d7d-8821-bdae5c5eb525.png" 
-                alt="Jornada de Fé - 30 Dias de Reflexões"
-                className="w-[200px] h-[300px] md:w-[280px] md:h-[380px] object-cover rounded-lg shadow-inner transition-all duration-500"
-              />
+              <img src="/lovable-uploads/e9fac0f7-2be2-4d7d-8821-bdae5c5eb525.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[200px] h-[300px] md:w-[280px] md:h-[380px] object-cover rounded-lg shadow-inner transition-all duration-500" />
               <div className="absolute inset-2 bg-gradient-to-t from-black/30 via-transparent to-yellow-400/10 rounded-lg pointer-events-none"></div>
             </div>
           </div>
         </div>
 
         {/* Smaller CTA Button */}
-        <button 
-          onClick={scrollTo30Days}
-          className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg mb-8 max-w-sm relative overflow-hidden"
-        >
+        <button onClick={scrollTo30Days} className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg mb-8 max-w-sm relative overflow-hidden">
           <span className="relative z-10">🙏 Iniciar Minha Jornada</span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
         </button>
@@ -151,7 +153,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="text-6xl animate-float drop-shadow-2xl transition-all duration-500">📖</div>
+                
               </div>
             </div>
 
@@ -171,7 +173,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="text-6xl animate-float drop-shadow-2xl transition-all duration-500">🙏</div>
+                
               </div>
             </div>
 
@@ -191,7 +193,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="text-6xl animate-float drop-shadow-2xl transition-all duration-500">👨‍👩‍👧‍👦</div>
+                
               </div>
             </div>
           </div>
@@ -202,11 +204,7 @@ const Index = () => {
       <section className="py-16 px-4 bg-gradient-to-br from-gray-900/40 to-black/40">
         <div className="max-w-4xl mx-auto text-center">
           <div className="relative inline-block mb-6">
-            <img 
-              src="/lovable-uploads/da2a4bc8-a689-4bbb-9088-33249e6d3775.png"
-              alt="Gabriel Alcântara"
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-400 mx-auto object-cover shadow-2xl transition-transform duration-500 hover:scale-105"
-            />
+            <img src="/lovable-uploads/da2a4bc8-a689-4bbb-9088-33249e6d3775.png" alt="Gabriel Alcântara" className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-400 mx-auto object-cover shadow-2xl transition-transform duration-500 hover:scale-105" />
             <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-2 py-1 rounded-full text-xs font-semibold shadow-lg transition-all duration-300">
               +3 Anos
             </div>
@@ -310,27 +308,28 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "Dias 1-10: Fundamentos da Fé", items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"] },
-              { title: "Dias 11-20: Crescimento Espiritual", items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"] },
-              { title: "Dias 21-30: Vida Abundante", items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"] },
-            ].map((module, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+            {[{
+            title: "Dias 1-10: Fundamentos da Fé",
+            items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
+          }, {
+            title: "Dias 11-20: Crescimento Espiritual",
+            items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
+          }, {
+            title: "Dias 21-30: Vida Abundante",
+            items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
+          }].map((module, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-gradient-gold font-black">{module.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {module.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
+                    {module.items.map((item, idx) => <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
                         <Star className="text-yellow-400" size={16} />
                         {item}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center mt-12">
@@ -355,10 +354,7 @@ const Index = () => {
 
           {/* Enhanced CTA to Purchase */}
           <div className="text-center mt-12">
-            <button 
-              onClick={scrollToPurchase}
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg max-w-sm relative overflow-hidden"
-            >
+            <button onClick={scrollToPurchase} className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg max-w-sm relative overflow-hidden">
               <span className="relative z-10">🛒 Iniciar Jornada Agora!</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
             </button>
@@ -374,37 +370,28 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Ana Costa",
-                phone: "+55 (11) 9****-****",
-                message: "Gente, esse material mudou minha vida! Em 15 dias já sentia uma paz que não tinha há anos. Minha família toda notou a diferença. Recomendo demais! 🙏✨",
-                time: "14:23",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-              },
-              {
-                name: "Carlos Silva",
-                phone: "+55 (21) 9****-****",
-                message: "Cara, eu era bem cético sobre essas coisas... Mas depois de 20 dias fazendo as reflexões, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente.",
-                time: "09:15",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-              },
-              {
-                name: "Fernanda Lima",
-                phone: "+55 (85) 9****-****",
-                message: "Meninas, comprei pensando 'mais um livro religioso'... Mas que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também. Vale cada centavo! 💕",
-                time: "16:45",
-                image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-green-800/20 to-green-900/20 p-4 rounded-2xl border border-green-500/30 shadow-2xl transition-all duration-500 hover:scale-105">
+            {[{
+            name: "Ana Costa",
+            phone: "+55 (11) 9****-****",
+            message: "Gente, esse material mudou minha vida! Em 15 dias já sentia uma paz que não tinha há anos. Minha família toda notou a diferença. Recomendo demais! 🙏✨",
+            time: "14:23",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+          }, {
+            name: "Carlos Silva",
+            phone: "+55 (21) 9****-****",
+            message: "Cara, eu era bem cético sobre essas coisas... Mas depois de 20 dias fazendo as reflexões, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente.",
+            time: "09:15",
+            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+          }, {
+            name: "Fernanda Lima",
+            phone: "+55 (85) 9****-****",
+            message: "Meninas, comprei pensando 'mais um livro religioso'... Mas que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também. Vale cada centavo! 💕",
+            time: "16:45",
+            image: "https://images.unsplash.com/photo-1494790108755-2616c96946b4?w=150&h=150&fit=crop&crop=face"
+          }].map((testimonial, index) => <div key={index} className="bg-gradient-to-br from-green-800/20 to-green-900/20 p-4 rounded-2xl border border-green-500/30 shadow-2xl transition-all duration-500 hover:scale-105">
                 <div className="bg-green-600 p-3 rounded-t-lg mb-3">
                   <div className="flex items-center gap-3">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name}
-                      className="w-10 h-10 rounded-full border-2 border-white"
-                    />
+                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-white" />
                     <div>
                       <div className="text-white font-bold text-sm">{testimonial.name}</div>
                       <div className="text-green-100 text-xs">{testimonial.phone}</div>
@@ -415,8 +402,7 @@ const Index = () => {
                   <p className="text-gray-800 font-medium text-sm leading-relaxed">{testimonial.message}</p>
                 </div>
                 <div className="text-gray-400 text-xs text-right">{testimonial.time}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -429,29 +415,23 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            {[
-              {
-                title: "Guia Completo de Oração Transformadora",
-                value: "R$ 67,00",
-                description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
-              },
-              {
-                title: "30 Versículos de Poder para Memorizar",
-                value: "R$ 47,00",
-                description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
-              },
-              {
-                title: "Playlist Cristã Exclusiva - Adoração Profunda",
-                value: "R$ 37,00",
-                description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
-              },
-              {
-                title: "Guia de Jejum e Meditação Cristã",
-                value: "R$ 87,00",
-                description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
-              }
-            ].map((bonus, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
+            {[{
+            title: "Guia Completo de Oração Transformadora",
+            value: "R$ 67,00",
+            description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
+          }, {
+            title: "30 Versículos de Poder para Memorizar",
+            value: "R$ 47,00",
+            description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
+          }, {
+            title: "Playlist Cristã Exclusiva - Adoração Profunda",
+            value: "R$ 37,00",
+            description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
+          }, {
+            title: "Guia de Jejum e Meditação Cristã",
+            value: "R$ 87,00",
+            description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
+          }].map((bonus, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <CardTitle className="text-gradient-gold font-black flex-1">{bonus.title}</CardTitle>
@@ -466,8 +446,7 @@ const Index = () => {
                 <CardContent>
                   <p className="font-semibold text-gray-300">{bonus.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center">
@@ -495,21 +474,11 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a 
-                href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 block text-center relative overflow-hidden"
-              >
+              <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 block text-center relative overflow-hidden">
                 <span className="relative z-10">💳 CARTÃO (3x R$ 9,97)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
-              <a 
-                href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 block text-center shadow-lg shadow-green-500/25 relative overflow-hidden"
-              >
+              <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 block text-center shadow-lg shadow-green-500/25 relative overflow-hidden">
                 <span className="relative z-10">💰 PIX (R$ 29,90)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
@@ -553,37 +522,29 @@ const Index = () => {
           </h2>
           
           <Accordion type="single" collapsible className="space-y-4">
-            {[
-              {
-                question: "Como funciona a Jornada de Fé?",
-                answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
-              },
-              {
-                question: "Preciso ter conhecimento bíblico avançado?",
-                answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
-              },
-              {
-                question: "Como recebo o material após a compra?",
-                answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
-              },
-              {
-                question: "Posso presentear alguém com este material?",
-                answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
-              },
-              {
-                question: "A garantia é real mesmo?",
-                answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
-              }
-            ].map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
+            {[{
+            question: "Como funciona a Jornada de Fé?",
+            answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
+          }, {
+            question: "Preciso ter conhecimento bíblico avançado?",
+            answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
+          }, {
+            question: "Como recebo o material após a compra?",
+            answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
+          }, {
+            question: "Posso presentear alguém com este material?",
+            answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
+          }, {
+            question: "A garantia é real mesmo?",
+            answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
+          }].map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
                 <AccordionTrigger className="text-gradient-gold font-black text-left hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-300 font-semibold">
                   {faq.answer}
                 </AccordionContent>
-              </AccordionItem>
-            ))}
+              </AccordionItem>)}
           </Accordion>
         </div>
       </section>
@@ -600,29 +561,18 @@ const Index = () => {
             </p>
             
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
-              <Input
-                type="text"
-                placeholder="Seu nome completo"
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
-                required
-              />
-              <Input
-                type="email"
-                placeholder="Seu melhor email"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
-                required
-              />
-              <Textarea
-                placeholder="Sugestões de novos produtos (opcional)"
-                value={formData.suggestion}
-                onChange={(e) => setFormData({...formData, suggestion: e.target.value})}
-                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
-                rows={3}
-              />
+              <Input type="text" placeholder="Seu nome completo" value={formData.name} onChange={e => setFormData({
+              ...formData,
+              name: e.target.value
+            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
+              <Input type="email" placeholder="Seu melhor email" value={formData.email} onChange={e => setFormData({
+              ...formData,
+              email: e.target.value
+            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
+              <Textarea placeholder="Sugestões de novos produtos (opcional)" value={formData.suggestion} onChange={e => setFormData({
+              ...formData,
+              suggestion: e.target.value
+            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" rows={3} />
               <Button type="submit" className="btn-gold w-full shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300">
                 <span className="relative z-10">FAZER PARTE DA LISTA VIP 🌟</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
@@ -660,10 +610,7 @@ const Index = () => {
             <div>
               <h4 className="font-black text-gradient-gold mb-4">Contato</h4>
               <div className="space-y-2">
-                <a 
-                  href="mailto:ogabrielempreendedor@gmail.com" 
-                  className="text-yellow-400 hover:text-yellow-300 font-semibold block text-xs break-all transition-colors duration-300"
-                >
+                <a href="mailto:ogabrielempreendedor@gmail.com" className="text-yellow-400 hover:text-yellow-300 font-semibold block text-xs break-all transition-colors duration-300">
                   ogabrielempreendedor@gmail.com
                 </a>
               </div>
@@ -677,8 +624,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

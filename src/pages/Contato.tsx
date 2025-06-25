@@ -1,11 +1,8 @@
-
 import { ArrowLeft, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
 const Contato = () => {
-  return (
-    <div className="min-h-screen bg-black text-white">
+  return <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-8">
         <Link to="/" className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 mb-8 font-bold">
           <ArrowLeft size={20} />
@@ -26,10 +23,7 @@ const Contato = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <a 
-                  href="mailto:ogabrielempreendedor@gmail.com"
-                  className="text-yellow-400 hover:text-yellow-300 font-bold text-lg"
-                >
+                <a href="mailto:ogabrielempreendedor@gmail.com" className="text-yellow-400 hover:text-yellow-300 font-bold text-lg">
                   ogabrielempreendedor@gmail.com
                 </a>
                 <p className="text-gray-300 font-semibold mt-2">
@@ -102,21 +96,9 @@ const Contato = () => {
             </div>
           </div>
 
-          <div className="text-center card-dark p-8 rounded-2xl border-gradient-gold">
-            <h2 className="text-2xl font-black text-gradient-gold mb-4">Redes Sociais</h2>
-            <p className="text-gray-300 font-semibold mb-6">
-              Acompanhe nosso conteúdo e fique por dentro das novidades
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="text-yellow-400 font-bold">
-                @gabrielalcantara (em breve)
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Contato;

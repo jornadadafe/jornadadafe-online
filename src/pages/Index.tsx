@@ -91,7 +91,6 @@ const Index = () => {
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative z-10">
         {/* Enhanced Instability Notice */}
         <div className="flex items-center gap-3 bg-red-900/30 border border-red-500/50 text-red-300 px-4 py-3 rounded-xl mb-6 text-sm font-bold transition-all duration-300 hover:bg-red-900/40 animate-pulse-glow max-w-md text-center shadow-2xl">
-          <AlertTriangle size={20} className="animate-bounce text-red-400" />
           <div>
             <div className="font-black text-red-200">⚠️ PÁGINA INSTÁVEL</div>
             <div className="text-xs text-red-300">Alto tráfego pode derrubar a página e você perder esta oferta exclusiva!</div>
@@ -245,8 +244,7 @@ const Index = () => {
           </div>
           
           <h3 className="text-2xl md:text-3xl font-black text-gradient-gold mb-2 drop-shadow-2xl transition-all duration-500">Gabriel Alcântara</h3>
-          <p className="text-lg font-semibold text-gray-300 mb-2">Mentor, Palestrante e Especialista em Transformação</p>
-          <p className="text-sm font-medium text-yellow-400 mb-6 italic">Inspirado na franquia: "Café com Deus Pai"</p>
+          <p className="text-lg font-semibold text-gray-300 mb-6">Mentor, Palestrante e Especialista em Transformação</p>
           
           <div className="max-w-2xl mx-auto space-y-4 mb-8 font-serif text-gray-300">
             <p className="leading-relaxed text-base">
@@ -257,6 +255,7 @@ const Index = () => {
             </p>
           </div>
 
+          {/* Stats and Blockquote */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/20 shadow-2xl transition-transform duration-300 hover:scale-105">
               <div className="text-3xl font-black text-gradient-gold">1000+</div>
@@ -398,158 +397,156 @@ const Index = () => {
       </section>
 
       {/* WhatsApp Testimonials Section */}
-      <section className="py-20 px-4 relative bg-gradient-to-br from-gray-900/10 to-black/10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-gradient-gold drop-shadow-2xl">
+      <section className="py-12 px-4 relative bg-gradient-to-br from-gray-900/10 to-black/10">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-black text-center mb-10 text-gradient-gold drop-shadow-2xl">
             CONVERSAS REAIS NO WHATSAPP
           </h2>
-          <p className="text-center text-gray-300 font-semibold mb-12 text-lg">
+          <p className="text-center text-gray-300 font-semibold mb-8 text-base">
             Veja o que nossos clientes estão falando sobre a transformação
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {/* WhatsApp Conversation 1 - Ana */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
-              <div className="bg-green-600 text-white p-4 rounded-t-2xl mb-4">
-                <div className="flex items-center gap-3">
-                  <img src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" alt="Ana Costa" className="w-10 h-10 rounded-full border-2 border-white" />
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-4 rounded-2xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
+              <div className="bg-green-600 text-white p-3 rounded-t-xl mb-3">
+                <div className="flex items-center gap-2">
+                  <img src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" alt="Ana Costa" className="w-8 h-8 rounded-full border-2 border-white" />
                   <div>
-                    <h4 className="font-bold text-white">Ana Costa</h4>
+                    <h4 className="font-bold text-white text-sm">Ana Costa</h4>
                     <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-3 p-4">
-                {/* Ana's message */}
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Gabriel, queria te agradecer! 🙏</p>
+              <div className="space-y-2 p-3">
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Gabriel, queria te agradecer! 🙏</p>
                   <span className="text-xs opacity-70">14:32</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Em apenas 15 dias senti uma paz que não tinha há anos. Minha família toda notou a diferença!</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Em apenas 15 dias senti uma paz que não tinha há anos. Minha família toda notou a diferença!</p>
                   <span className="text-xs opacity-70">14:33</span>
                 </div>
                 
-                {/* Gabriel's response */}
-                <div className="bg-gray-600 text-white p-3 rounded-2xl rounded-bl-md max-w-[80%]">
-                  <p className="text-sm">Que bênção Ana! Deus é fiel 🙌</p>
+                <div className="bg-gray-600 text-white p-2 rounded-xl rounded-bl-md max-w-[80%]">
+                  <p className="text-xs">Que bênção Ana! Deus é fiel 🙌</p>
                   <span className="text-xs opacity-70">14:35</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Este material realmente funciona! Vou recomendar para toda minha igreja ⛪</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Este material realmente funciona! Vou recomendar para toda minha igreja ⛪</p>
                   <span className="text-xs opacity-70">14:36</span>
                 </div>
               </div>
               
-              <div className="mt-4 text-center">
-                <div className="text-yellow-400 text-sm font-bold">✅ Cliente Verificado • Compra em Nov/2024</div>
+              <div className="mt-3 text-center">
+                <div className="text-yellow-400 text-xs font-bold">✅ Cliente Verificado • Compra em Nov/2024</div>
               </div>
             </div>
 
             {/* WhatsApp Conversation 2 - Carlos */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
-              <div className="bg-green-600 text-white p-4 rounded-t-2xl mb-4">
-                <div className="flex items-center gap-3">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-4 rounded-2xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
+              <div className="bg-green-600 text-white p-3 rounded-t-xl mb-3">
+                <div className="flex items-center gap-2">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                   <div>
-                    <h4 className="font-bold text-white">Carlos Silva</h4>
+                    <h4 className="font-bold text-white text-sm">Carlos Silva</h4>
                     <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-3 p-4">
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Cara, eu era cético sobre essas coisas... 🤔</p>
+              <div className="space-y-2 p-3">
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Cara, eu era cético sobre essas coisas... 🤔</p>
                   <span className="text-xs opacity-70">09:15</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Mas depois de 20 dias, minha ansiedade diminuiu MUITO. Durmo melhor e me sinto mais conectado espiritualmente</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Mas depois de 20 dias, minha ansiedade diminuiu MUITO. Durmo melhor e me sinto mais conectado espiritualmente</p>
                   <span className="text-xs opacity-70">09:16</span>
                 </div>
                 
-                <div className="bg-gray-600 text-white p-3 rounded-2xl rounded-bl-md max-w-[80%]">
-                  <p className="text-sm">Deus sempre surpreende! 🙏</p>
+                <div className="bg-gray-600 text-white p-2 rounded-xl rounded-bl-md max-w-[80%]">
+                  <p className="text-xs">Deus sempre surpreende! 🙏</p>
                   <span className="text-xs opacity-70">09:18</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Valeu demais o investimento. Minha esposa também quer fazer! 👫</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Valeu demais o investimento. Minha esposa também quer fazer! 👫</p>
                   <span className="text-xs opacity-70">09:19</span>
                 </div>
               </div>
               
-              <div className="mt-4 text-center">
-                <div className="text-yellow-400 text-sm font-bold">✅ Cliente Verificado • Compra em Dez/2024</div>
+              <div className="mt-3 text-center">
+                <div className="text-yellow-400 text-xs font-bold">✅ Cliente Verificado • Compra em Dez/2024</div>
               </div>
             </div>
 
             {/* WhatsApp Conversation 3 - Fernanda */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
-              <div className="bg-green-600 text-white p-4 rounded-t-2xl mb-4">
-                <div className="flex items-center gap-3">
-                  <img src="https://images.unsplash.com/photo-1494790108755-2616c4be1b29?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-4 rounded-2xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
+              <div className="bg-green-600 text-white p-3 rounded-t-xl mb-3">
+                <div className="flex items-center gap-2">
+                  <img src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                   <div>
-                    <h4 className="font-bold text-white">Fernanda Lima</h4>
+                    <h4 className="font-bold text-white text-sm">Fernanda Lima</h4>
                     <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-3 p-4">
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Gabriel!! 😍</p>
+              <div className="space-y-2 p-3">
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Gabriel!! 😍</p>
                   <span className="text-xs opacity-70">16:42</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Comprei pensando "mais um livro religioso"... Que surpresa!</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Comprei pensando "mais um livro religioso"... Que surpresa!</p>
                   <span className="text-xs opacity-70">16:43</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Os desafios são simples mas PODEROSOS. Meu casamento melhorou, minha relação com Deus também! 💑✨</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Os desafios são simples mas PODEROSOS. Meu casamento melhorou, minha relação com Deus também! 💑✨</p>
                   <span className="text-xs opacity-70">16:44</span>
                 </div>
                 
-                <div className="bg-gray-600 text-white p-3 rounded-2xl rounded-bl-md max-w-[80%]">
-                  <p className="text-sm">Glória a Deus! ✨🙌</p>
+                <div className="bg-gray-600 text-white p-2 rounded-xl rounded-bl-md max-w-[80%]">
+                  <p className="text-xs">Glória a Deus! ✨🙌</p>
                   <span className="text-xs opacity-70">16:46</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
-                  <p className="text-sm">Já recomendei para 5 amigas! 👭</p>
+                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-xs">Já recomendei para 5 amigas! 👭</p>
                   <span className="text-xs opacity-70">16:47</span>
                 </div>
               </div>
               
-              <div className="mt-4 text-center">
-                <div className="text-yellow-400 text-sm font-bold">✅ Cliente Verificada • Compra em Dez/2024</div>
+              <div className="mt-3 text-center">
+                <div className="text-yellow-400 text-xs font-bold">✅ Cliente Verificada • Compra em Dez/2024</div>
               </div>
             </div>
           </div>
 
           {/* Social Proof Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-3xl font-black text-gradient-gold mb-2">1,000+</div>
-              <div className="text-gray-300 font-bold text-sm">Vidas Transformadas</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-2xl font-black text-gradient-gold mb-2">1,000+</div>
+              <div className="text-gray-300 font-bold text-xs">Vidas Transformadas</div>
             </div>
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-3xl font-black text-gradient-gold mb-2">4.9⭐</div>
-              <div className="text-gray-300 font-bold text-sm">Avaliação Média</div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-2xl font-black text-gradient-gold mb-2">4.9⭐</div>
+              <div className="text-gray-300 font-bold text-xs">Avaliação Média</div>
             </div>
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-3xl font-black text-gradient-gold mb-2">98%</div>
-              <div className="text-gray-300 font-bold text-sm">Recomendam</div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-2xl font-black text-gradient-gold mb-2">98%</div>
+              <div className="text-gray-300 font-bold text-xs">Recomendam</div>
             </div>
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-3xl font-black text-gradient-gold mb-2">30</div>
-              <div className="text-gray-300 font-bold text-sm">Dias de Conteúdo</div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
+              <div className="text-2xl font-black text-gradient-gold mb-2">30</div>
+              <div className="text-gray-300 font-bold text-xs">Dias de Conteúdo</div>
             </div>
           </div>
         </div>

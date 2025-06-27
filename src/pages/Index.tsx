@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Link } from 'react-router-dom';
+
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -17,6 +19,7 @@ const Index = () => {
     email: '',
     suggestion: ''
   });
+
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
@@ -38,6 +41,7 @@ const Index = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
@@ -49,16 +53,19 @@ const Index = () => {
       });
     }
   };
+
   const scrollTo30Days = () => {
     document.getElementById('30-days-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToPurchase = () => {
     document.getElementById('purchase-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   return <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* Enhanced Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
@@ -87,7 +94,7 @@ const Index = () => {
           <AlertTriangle size={20} className="animate-bounce text-red-400" />
           <div>
             <div className="font-black text-red-200">⚠️ PÁGINA INSTÁVEL</div>
-            <div className="text-xs text-red-300">Alto tráfego pode derrubar a página e você perder esta oferta!</div>
+            <div className="text-xs text-red-300">Alto tráfego pode derrubar a página e você perder esta oferta exclusiva!</div>
           </div>
         </div>
 
@@ -115,7 +122,7 @@ const Index = () => {
           <div className="relative">
             <div className="mb-4">
               <h3 className="text-base md:text-lg font-bold text-gray-300 mb-1 transition-all duration-500 tracking-wide">
-                Conheça a revolucionária
+                🙏 Descubra o poder transformador da
               </h3>
               <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-2 animate-pulse"></div>
             </div>
@@ -390,84 +397,139 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials - New Professional Design */}
+      {/* WhatsApp Testimonials Section */}
       <section className="py-20 px-4 relative bg-gradient-to-br from-gray-900/10 to-black/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-gradient-gold drop-shadow-2xl">
-            VIDAS TRANSFORMADAS
+            CONVERSAS REAIS NO WHATSAPP
           </h2>
           <p className="text-center text-gray-300 font-semibold mb-12 text-lg">
-            Mais de 1.000 pessoas já transformaram suas vidas com nossa Jornada de Fé
+            Veja o que nossos clientes estão falando sobre a transformação
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Testimonial 1 - Ana */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
-              <div className="flex items-center mb-6">
-                <div className="relative">
-                  <img alt="Ana Costa" className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl" src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" />
-                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                    <CheckCircle size={12} className="text-white" />
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="font-black text-gradient-gold text-lg">Ana Costa</h4>
-                  <p className="text-gray-400 text-sm font-semibold">Empresária • São Paulo</p>
-                  <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
+            {/* WhatsApp Conversation 1 - Ana */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
+              <div className="bg-green-600 text-white p-4 rounded-t-2xl mb-4">
+                <div className="flex items-center gap-3">
+                  <img src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" alt="Ana Costa" className="w-10 h-10 rounded-full border-2 border-white" />
+                  <div>
+                    <h4 className="font-bold text-white">Ana Costa</h4>
+                    <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
-              <blockquote className="text-gray-300 font-medium italic leading-relaxed text-base mb-4">
-                "Em apenas 15 dias senti uma paz que não tinha há anos. Minha família toda notou a diferença no meu comportamento. Este material realmente funciona!"
-              </blockquote>
-              <div className="text-yellow-400 text-sm font-bold">✅ Verificado • Compra realizada em Nov/2024</div>
+              
+              <div className="space-y-3 p-4">
+                {/* Ana's message */}
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Gabriel, queria te agradecer! 🙏</p>
+                  <span className="text-xs opacity-70">14:32</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Em apenas 15 dias senti uma paz que não tinha há anos. Minha família toda notou a diferença!</p>
+                  <span className="text-xs opacity-70">14:33</span>
+                </div>
+                
+                {/* Gabriel's response */}
+                <div className="bg-gray-600 text-white p-3 rounded-2xl rounded-bl-md max-w-[80%]">
+                  <p className="text-sm">Que bênção Ana! Deus é fiel 🙌</p>
+                  <span className="text-xs opacity-70">14:35</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Este material realmente funciona! Vou recomendar para toda minha igreja ⛪</p>
+                  <span className="text-xs opacity-70">14:36</span>
+                </div>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <div className="text-yellow-400 text-sm font-bold">✅ Cliente Verificado • Compra em Nov/2024</div>
+              </div>
             </div>
 
-            {/* Testimonial 2 - Carlos */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
-              <div className="flex items-center mb-6">
-                <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl" />
-                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                    <CheckCircle size={12} className="text-white" />
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="font-black text-gradient-gold text-lg">Carlos Silva</h4>
-                  <p className="text-gray-400 text-sm font-semibold">Engenheiro • Rio de Janeiro</p>
-                  <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
+            {/* WhatsApp Conversation 2 - Carlos */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
+              <div className="bg-green-600 text-white p-4 rounded-t-2xl mb-4">
+                <div className="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
+                  <div>
+                    <h4 className="font-bold text-white">Carlos Silva</h4>
+                    <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
-              <blockquote className="text-gray-300 font-medium italic leading-relaxed text-base mb-4">
-                "Eu era cético sobre essas coisas... Mas depois de 20 dias, minha ansiedade diminuiu muito. Durmo melhor e me sinto mais conectado espiritualmente."
-              </blockquote>
-              <div className="text-yellow-400 text-sm font-bold">✅ Verificado • Compra realizada em Dez/2024</div>
+              
+              <div className="space-y-3 p-4">
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Cara, eu era cético sobre essas coisas... 🤔</p>
+                  <span className="text-xs opacity-70">09:15</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Mas depois de 20 dias, minha ansiedade diminuiu MUITO. Durmo melhor e me sinto mais conectado espiritualmente</p>
+                  <span className="text-xs opacity-70">09:16</span>
+                </div>
+                
+                <div className="bg-gray-600 text-white p-3 rounded-2xl rounded-bl-md max-w-[80%]">
+                  <p className="text-sm">Deus sempre surpreende! 🙏</p>
+                  <span className="text-xs opacity-70">09:18</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Valeu demais o investimento. Minha esposa também quer fazer! 👫</p>
+                  <span className="text-xs opacity-70">09:19</span>
+                </div>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <div className="text-yellow-400 text-sm font-bold">✅ Cliente Verificado • Compra em Dez/2024</div>
+              </div>
             </div>
 
-            {/* Testimonial 3 - Fernanda */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-8 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500 hover:border-yellow-400/40 card-hover-effect">
-              <div className="flex items-center mb-6">
-                <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-16 h-16 rounded-full border-3 border-yellow-400/50 object-cover shadow-xl" />
-                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                    <CheckCircle size={12} className="text-white" />
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="font-black text-gradient-gold text-lg">Fernanda Lima</h4>
-                  <p className="text-gray-400 text-sm font-semibold">Professora • Fortaleza</p>
-                  <div className="flex gap-1 mt-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
+            {/* WhatsApp Conversation 3 - Fernanda */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 rounded-3xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
+              <div className="bg-green-600 text-white p-4 rounded-t-2xl mb-4">
+                <div className="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616c4be1b29?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
+                  <div>
+                    <h4 className="font-bold text-white">Fernanda Lima</h4>
+                    <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
-              <blockquote className="text-gray-300 font-medium italic leading-relaxed text-base mb-4">
-                "Comprei pensando 'mais um livro religioso'... Que surpresa! Os desafios são simples mas poderosos. Meu casamento melhorou, minha relação com Deus também!"
-              </blockquote>
-              <div className="text-yellow-400 text-sm font-bold">✅ Verificado • Compra realizada em Dez/2024</div>
+              
+              <div className="space-y-3 p-4">
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Gabriel!! 😍</p>
+                  <span className="text-xs opacity-70">16:42</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Comprei pensando "mais um livro religioso"... Que surpresa!</p>
+                  <span className="text-xs opacity-70">16:43</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Os desafios são simples mas PODEROSOS. Meu casamento melhorou, minha relação com Deus também! 💑✨</p>
+                  <span className="text-xs opacity-70">16:44</span>
+                </div>
+                
+                <div className="bg-gray-600 text-white p-3 rounded-2xl rounded-bl-md max-w-[80%]">
+                  <p className="text-sm">Glória a Deus! ✨🙌</p>
+                  <span className="text-xs opacity-70">16:46</span>
+                </div>
+                
+                <div className="bg-green-500 text-white p-3 rounded-2xl rounded-br-md max-w-[80%] ml-auto">
+                  <p className="text-sm">Já recomendei para 5 amigas! 👭</p>
+                  <span className="text-xs opacity-70">16:47</span>
+                </div>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <div className="text-yellow-400 text-sm font-bold">✅ Cliente Verificada • Compra em Dez/2024</div>
+              </div>
             </div>
           </div>
 
@@ -647,18 +709,29 @@ const Index = () => {
             </p>
             
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
-              <Input type="text" placeholder="Seu nome completo" value={formData.name} onChange={e => setFormData({
-              ...formData,
-              name: e.target.value
-            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
-              <Input type="email" placeholder="Seu melhor email" value={formData.email} onChange={e => setFormData({
-              ...formData,
-              email: e.target.value
-            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
-              <Textarea placeholder="Sugestões de novos produtos (opcional)" value={formData.suggestion} onChange={e => setFormData({
-              ...formData,
-              suggestion: e.target.value
-            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" rows={3} />
+              <Input
+                type="text"
+                placeholder="Seu nome completo"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
+                required
+              />
+              <Input
+                type="email"
+                placeholder="Seu melhor email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
+                required
+              />
+              <Textarea
+                placeholder="Sugestões de novos produtos (opcional)"
+                value={formData.suggestion}
+                onChange={(e) => setFormData({ ...formData, suggestion: e.target.value })}
+                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
+                rows={3}
+              />
               <Button type="submit" className="btn-gold w-full shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300">
                 <span className="relative z-10">FAZER PARTE DA LISTA VIP 🌟</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
@@ -675,15 +748,15 @@ const Index = () => {
             <div>
               <h4 className="font-black text-gradient-gold mb-4">Links Úteis</h4>
               <ul className="space-y-2">
-                <li><a href="/sobre" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Sobre</a></li>
-                <li><a href="/contato" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Contato</a></li>
+                <li><Link to="/sobre" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Sobre</Link></li>
+                <li><Link to="/contato" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Contato</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-black text-gradient-gold mb-4">Política</h4>
               <ul className="space-y-2">
-                <li><a href="/politica-reembolso" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Reembolso</a></li>
-                <li><a href="/termos" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Termos</a></li>
+                <li><Link to="/politica-reembolso" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Reembolso</Link></li>
+                <li><Link to="/termos" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Termos</Link></li>
               </ul>
             </div>
             <div>

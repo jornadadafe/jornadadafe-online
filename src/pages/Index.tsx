@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
-
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -19,26 +18,30 @@ const Index = () => {
     email: '',
     suggestion: ''
   });
-
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         const totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds;
         if (totalSeconds <= 0) {
-          return { hours: 0, minutes: 0, seconds: 0 };
+          return {
+            hours: 0,
+            minutes: 0,
+            seconds: 0
+          };
         }
-        
         const newTotalSeconds = totalSeconds - 1;
         const hours = Math.floor(newTotalSeconds / 3600);
-        const minutes = Math.floor((newTotalSeconds % 3600) / 60);
+        const minutes = Math.floor(newTotalSeconds % 3600 / 60);
         const seconds = newTotalSeconds % 60;
-        
-        return { hours, minutes, seconds };
+        return {
+          hours,
+          minutes,
+          seconds
+        };
       });
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
@@ -50,50 +53,77 @@ const Index = () => {
       });
     }
   };
-
   const scrollTo30Days = () => {
     document.getElementById('30-days-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   const scrollToPurchase = () => {
     document.getElementById('purchase-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   return <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* Enhanced Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         {/* Animated geometric shapes */}
         <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-yellow-600/5 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/15 to-yellow-400/8 rounded-full animate-bounce-gentle blur-lg" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/15 to-yellow-400/8 rounded-full animate-bounce-gentle blur-lg" style={{
+        animationDelay: '1s'
+      }}></div>
         <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-yellow-300/8 to-yellow-500/12 rounded-full animate-pulse-slow blur-2xl"></div>
-        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/20 to-yellow-400/10 rounded-full animate-float blur-md" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/12 to-yellow-300/8 rounded-full animate-bounce-gentle blur-xl" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/20 to-yellow-400/10 rounded-full animate-float blur-md" style={{
+        animationDelay: '2s'
+      }}></div>
+        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/12 to-yellow-300/8 rounded-full animate-bounce-gentle blur-xl" style={{
+        animationDelay: '3s'
+      }}></div>
         
         {/* Floating light rays */}
-        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/20 via-transparent to-transparent animate-pulse-slow" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/15 via-transparent to-transparent animate-pulse-slow" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent animate-pulse-slow" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/20 via-transparent to-transparent animate-pulse-slow" style={{
+        animationDelay: '0.5s'
+      }}></div>
+        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/15 via-transparent to-transparent animate-pulse-slow" style={{
+        animationDelay: '1.5s'
+      }}></div>
+        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent animate-pulse-slow" style={{
+        animationDelay: '2.5s'
+      }}></div>
         
         {/* Animated stars */}
-        <div className="absolute top-20 left-1/3 text-yellow-400/30 animate-pulse" style={{animationDelay: '1s'}}>✨</div>
-        <div className="absolute top-80 right-1/4 text-yellow-300/40 animate-pulse" style={{animationDelay: '2s'}}>⭐</div>
-        <div className="absolute bottom-60 left-1/2 text-yellow-500/25 animate-pulse" style={{animationDelay: '3s'}}>✨</div>
-        <div className="absolute top-40 left-10 text-yellow-400/35 animate-pulse" style={{animationDelay: '0.5s'}}>⭐</div>
-        <div className="absolute bottom-40 right-20 text-yellow-300/30 animate-pulse" style={{animationDelay: '2.5s'}}>✨</div>
+        <div className="absolute top-20 left-1/3 text-yellow-400/30 animate-pulse" style={{
+        animationDelay: '1s'
+      }}>✨</div>
+        <div className="absolute top-80 right-1/4 text-yellow-300/40 animate-pulse" style={{
+        animationDelay: '2s'
+      }}>⭐</div>
+        <div className="absolute bottom-60 left-1/2 text-yellow-500/25 animate-pulse" style={{
+        animationDelay: '3s'
+      }}>✨</div>
+        <div className="absolute top-40 left-10 text-yellow-400/35 animate-pulse" style={{
+        animationDelay: '0.5s'
+      }}>⭐</div>
+        <div className="absolute bottom-40 right-20 text-yellow-300/30 animate-pulse" style={{
+        animationDelay: '2.5s'
+      }}>✨</div>
         
         {/* Moving gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/3 via-transparent to-yellow-800/3 animate-pulse-slow"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/2 to-transparent animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/2 to-transparent animate-pulse-slow" style={{
+        animationDelay: '1s'
+      }}></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         
         {/* Animated cross symbols */}
-        <div className="absolute top-32 right-16 text-yellow-400/20 text-2xl animate-float" style={{animationDelay: '1.5s'}}>✝</div>
-        <div className="absolute bottom-32 left-12 text-yellow-300/25 text-xl animate-bounce-gentle" style={{animationDelay: '2.5s'}}>✝</div>
-        <div className="absolute top-96 left-1/4 text-yellow-500/15 text-lg animate-pulse" style={{animationDelay: '3.5s'}}>✝</div>
+        <div className="absolute top-32 right-16 text-yellow-400/20 text-2xl animate-float" style={{
+        animationDelay: '1.5s'
+      }}>✝</div>
+        <div className="absolute bottom-32 left-12 text-yellow-300/25 text-xl animate-bounce-gentle" style={{
+        animationDelay: '2.5s'
+      }}>✝</div>
+        <div className="absolute top-96 left-1/4 text-yellow-500/15 text-lg animate-pulse" style={{
+        animationDelay: '3.5s'
+      }}>✝</div>
       </div>
 
       {/* Hero Section */}
@@ -156,11 +186,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 via-yellow-500/40 to-yellow-600/30 rounded-2xl blur-2xl animate-glow-pulse"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 via-transparent to-yellow-500/20 rounded-2xl blur-xl animate-pulse-slow"></div>
             <div className="relative bg-gradient-to-br from-gray-800 to-black p-3 rounded-2xl shadow-2xl border border-yellow-400/60 transition-all duration-700 hover:border-yellow-400/90 backdrop-blur-professional">
-              <img 
-                src="/lovable-uploads/8278a13c-b153-46e3-81e4-89436f8c70a2.png" 
-                alt="Jornada de Fé - 30 Dias de Reflexões" 
-                className="w-[220px] h-[320px] md:w-[300px] md:h-[400px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" 
-              />
+              <img src="/lovable-uploads/8278a13c-b153-46e3-81e4-89436f8c70a2.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[220px] h-[320px] md:w-[300px] md:h-[400px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
               <div className="absolute inset-3 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/15 rounded-xl pointer-events-none"></div>
               <div className="absolute inset-3 border border-yellow-400/20 rounded-xl pointer-events-none animate-pulse-slow"></div>
             </div>
@@ -505,7 +531,7 @@ const Index = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-3 rounded-xl border border-yellow-400/20 shadow-xl hover:scale-105 transition-all duration-500 card-hover-effect">
               <div className="bg-green-600 text-white p-2 rounded-t-lg mb-2">
                 <div className="flex items-center gap-2">
-                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-6 h-6 rounded-full border border-white object-cover" />
+                  <img alt="Fernanda Lima" className="w-6 h-6 rounded-full border border-white object-cover" src="/lovable-uploads/0bb92a5b-3eef-4414-b2b6-c2106ce71d9e.jpg" />
                   <div>
                     <h4 className="font-bold text-white text-xs">Fernanda Lima</h4>
                     <p className="text-xs text-green-100">online</p>
@@ -722,29 +748,18 @@ const Index = () => {
             </p>
             
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
-              <Input
-                type="text"
-                placeholder="Seu nome completo"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
-                required
-              />
-              <Input
-                type="email"
-                placeholder="Seu melhor email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
-                required
-              />
-              <Textarea
-                placeholder="Sugestões de novos produtos (opcional)"
-                value={formData.suggestion}
-                onChange={(e) => setFormData({ ...formData, suggestion: e.target.value })}
-                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl"
-                rows={3}
-              />
+              <Input type="text" placeholder="Seu nome completo" value={formData.name} onChange={e => setFormData({
+              ...formData,
+              name: e.target.value
+            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
+              <Input type="email" placeholder="Seu melhor email" value={formData.email} onChange={e => setFormData({
+              ...formData,
+              email: e.target.value
+            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
+              <Textarea placeholder="Sugestões de novos produtos (opcional)" value={formData.suggestion} onChange={e => setFormData({
+              ...formData,
+              suggestion: e.target.value
+            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" rows={3} />
               <Button type="submit" className="btn-gold w-full shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300">
                 <span className="relative z-10">FAZER PARTE DA LISTA VIP 🌟</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
@@ -789,12 +804,7 @@ const Index = () => {
               </div>
             </div>
             
-            <a 
-              href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="button-professional bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 text-lg inline-block relative overflow-hidden backdrop-blur-sm"
-            >
+            <a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="button-professional bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 text-lg inline-block relative overflow-hidden backdrop-blur-sm">
               <span className="relative z-10">💼 QUERO SER AFILIADO AGORA!</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
             </a>
@@ -810,12 +820,7 @@ const Index = () => {
             <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-6 rounded-xl border border-purple-400/20 inline-block shadow-xl">
               <h4 className="font-black text-purple-400 mb-3">💼 Programa de Afiliados</h4>
               <p className="text-gray-300 text-sm mb-4">Ganhe 40% de comissão divulgando nossos produtos!</p>
-              <a 
-                href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 text-sm inline-block"
-              >
+              <a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 text-sm inline-block">
                 Seja Afiliado
               </a>
             </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
-import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin, AlertTriangle } from 'lucide-react';
+import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin, AlertTriangle, Users, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
-    minutes: 0,
+    minutes: 10,
     seconds: 0
   });
   const [formData, setFormData] = useState({
@@ -22,21 +22,18 @@ const Index = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const now = new Date();
-      const midnight = new Date();
-      midnight.setHours(23, 59, 59, 999);
-      if (now > midnight) {
-        midnight.setDate(midnight.getDate() + 1);
-        midnight.setHours(23, 59, 59, 999);
-      }
-      const diff = midnight.getTime() - now.getTime();
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor(diff % (1000 * 60 * 60) / (1000 * 60));
-      const seconds = Math.floor(diff % (1000 * 60) / 1000);
-      setTimeLeft({
-        hours,
-        minutes,
-        seconds
+      setTimeLeft(prev => {
+        const totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds;
+        if (totalSeconds <= 0) {
+          return { hours: 0, minutes: 0, seconds: 0 };
+        }
+        
+        const newTotalSeconds = totalSeconds - 1;
+        const hours = Math.floor(newTotalSeconds / 3600);
+        const minutes = Math.floor((newTotalSeconds % 3600) / 60);
+        const seconds = newTotalSeconds % 60;
+        
+        return { hours, minutes, seconds };
       });
     }, 1000);
     return () => clearInterval(timer);
@@ -67,67 +64,79 @@ const Index = () => {
   };
 
   return <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Enhanced Background Elements */}
-      <div className="fixed inset-0 pointer-events-none">
-        {/* Floating particles */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400/20 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-yellow-500/15 rounded-full animate-bounce-gentle" style={{
-        animationDelay: '1s'
-      }}></div>
-        <div className="absolute bottom-40 left-20 w-2 h-2 bg-yellow-400/25 rounded-full animate-float" style={{
-        animationDelay: '2s'
-      }}></div>
-        <div className="absolute top-60 right-40 w-1 h-1 bg-yellow-300/30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-500/20 rounded-full animate-bounce-gentle" style={{
-        animationDelay: '3s'
-      }}></div>
+      {/* Enhanced Animated Background Elements */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        {/* Animated geometric shapes */}
+        <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-yellow-600/5 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/15 to-yellow-400/8 rounded-full animate-bounce-gentle blur-lg" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-yellow-300/8 to-yellow-500/12 rounded-full animate-pulse-slow blur-2xl"></div>
+        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/20 to-yellow-400/10 rounded-full animate-float blur-md" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/12 to-yellow-300/8 rounded-full animate-bounce-gentle blur-xl" style={{animationDelay: '3s'}}></div>
         
-        {/* Gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-900/5 via-transparent to-yellow-800/5 animate-pulse-slow"></div>
+        {/* Floating light rays */}
+        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/20 via-transparent to-transparent animate-pulse-slow" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/15 via-transparent to-transparent animate-pulse-slow" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent animate-pulse-slow" style={{animationDelay: '2.5s'}}></div>
+        
+        {/* Animated stars */}
+        <div className="absolute top-20 left-1/3 text-yellow-400/30 animate-pulse" style={{animationDelay: '1s'}}>✨</div>
+        <div className="absolute top-80 right-1/4 text-yellow-300/40 animate-pulse" style={{animationDelay: '2s'}}>⭐</div>
+        <div className="absolute bottom-60 left-1/2 text-yellow-500/25 animate-pulse" style={{animationDelay: '3s'}}>✨</div>
+        <div className="absolute top-40 left-10 text-yellow-400/35 animate-pulse" style={{animationDelay: '0.5s'}}>⭐</div>
+        <div className="absolute bottom-40 right-20 text-yellow-300/30 animate-pulse" style={{animationDelay: '2.5s'}}>✨</div>
+        
+        {/* Moving gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/3 via-transparent to-yellow-800/3 animate-pulse-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/2 to-transparent animate-pulse-slow" style={{animationDelay: '1s'}}></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        
+        {/* Animated cross symbols */}
+        <div className="absolute top-32 right-16 text-yellow-400/20 text-2xl animate-float" style={{animationDelay: '1.5s'}}>✝</div>
+        <div className="absolute bottom-32 left-12 text-yellow-300/25 text-xl animate-bounce-gentle" style={{animationDelay: '2.5s'}}>✝</div>
+        <div className="absolute top-96 left-1/4 text-yellow-500/15 text-lg animate-pulse" style={{animationDelay: '3.5s'}}>✝</div>
       </div>
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative z-10">
         {/* Enhanced Instability Notice */}
-        <div className="flex items-center gap-3 bg-red-900/30 border border-red-500/50 text-red-300 px-4 py-3 rounded-xl mb-6 text-sm font-bold transition-all duration-300 hover:bg-red-900/40 animate-pulse-glow max-w-md text-center shadow-2xl">
+        <div className="flex items-center gap-3 bg-red-900/40 border border-red-500/60 text-red-200 px-6 py-4 rounded-xl mb-6 text-sm font-bold transition-all duration-300 hover:bg-red-900/50 animate-pulse-glow max-w-lg text-center shadow-2xl backdrop-blur-sm">
           <div>
-            <div className="font-black text-red-200">⚠️ PÁGINA INSTÁVEL</div>
-            <div className="text-xs text-red-300">Alto tráfego pode derrubar a página e você perder esta oferta exclusiva!</div>
+            <div className="font-black text-red-100 text-lg">⚠️ PÁGINA INSTÁVEL</div>
+            <div className="text-sm text-red-200 leading-relaxed">Alto tráfego pode derrubar a página e você perder esta oferta exclusiva! Não saia desta página.</div>
           </div>
         </div>
 
-        {/* Timer - Smaller */}
-        <div className="flex gap-3 mb-6">
-          <div className="bg-gradient-to-br from-red-600 to-red-800 p-3 rounded-lg text-center min-w-[60px] border border-red-400/50 shadow-xl transition-transform duration-300 hover:scale-105">
-            <div className="text-lg font-black text-white">{String(timeLeft.hours).padStart(2, '0')}</div>
+        {/* Enhanced Timer */}
+        <div className="flex gap-4 mb-8">
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-4 rounded-xl text-center min-w-[70px] border border-red-400/60 shadow-2xl transition-transform duration-300 hover:scale-105 backdrop-blur-sm">
+            <div className="text-2xl font-black text-white">{String(timeLeft.hours).padStart(2, '0')}</div>
             <div className="text-xs font-bold text-red-200">HORAS</div>
           </div>
-          <div className="bg-gradient-to-br from-red-600 to-red-800 p-3 rounded-lg text-center min-w-[60px] border border-red-400/50 shadow-xl transition-transform duration-300 hover:scale-105">
-            <div className="text-lg font-black text-white">{String(timeLeft.minutes).padStart(2, '0')}</div>
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-4 rounded-xl text-center min-w-[70px] border border-red-400/60 shadow-2xl transition-transform duration-300 hover:scale-105 backdrop-blur-sm">
+            <div className="text-2xl font-black text-white">{String(timeLeft.minutes).padStart(2, '0')}</div>
             <div className="text-xs font-bold text-red-200">MIN</div>
           </div>
-          <div className="bg-gradient-to-br from-red-600 to-red-800 p-3 rounded-lg text-center min-w-[60px] border border-red-400/50 shadow-xl transition-transform duration-300 hover:scale-105">
-            <div className="text-lg font-black text-white">{String(timeLeft.seconds).padStart(2, '0')}</div>
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-4 rounded-xl text-center min-w-[70px] border border-red-400/60 shadow-2xl transition-transform duration-300 hover:scale-105 backdrop-blur-sm">
+            <div className="text-2xl font-black text-white">{String(timeLeft.seconds).padStart(2, '0')}</div>
             <div className="text-xs font-bold text-red-200">SEG</div>
           </div>
         </div>
 
         {/* Enhanced Headline */}
         <div className="text-center mb-8">
-          <h2 className="text-lg md:text-xl font-semibold text-yellow-400 mb-4 transition-all duration-500">
+          <h2 className="text-lg md:text-xl font-semibold text-yellow-400 mb-4 transition-all duration-500 animate-fade-in-scale">
             Como está sua fé hoje?
           </h2>
           <div className="relative">
             <div className="mb-4">
-              <h3 className="text-base md:text-lg font-bold text-gray-300 mb-1 transition-all duration-500 tracking-wide">
+              <h3 className="text-base md:text-lg font-bold text-gray-300 mb-1 transition-all duration-500 tracking-wide animate-slide-in-up">
                 🙏 Descubra o poder transformador da
               </h3>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-2 animate-pulse"></div>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-2 animate-shimmer"></div>
             </div>
-            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight relative z-10 transition-all duration-700">
-              <span className="text-gradient-gold block drop-shadow-2xl">JORNADA DE FÉ</span>
-              <span className="text-gradient-gold block drop-shadow-2xl">30 DIAS DE REFLEXÕES</span>
+            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight relative z-10 transition-all duration-700 animate-fade-in-scale">
+              <span className="text-gradient-gold block drop-shadow-2xl text-shadow-gold">JORNADA DE FÉ</span>
+              <span className="text-gradient-gold block drop-shadow-2xl text-shadow-gold">30 DIAS DE REFLEXÕES</span>
             </h1>
           </div>
           
@@ -138,34 +147,40 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Enhanced Product Image as Book Cover */}
+        {/* Enhanced Product Image with Professional Effects */}
         <div className="relative mb-8 perspective-1000">
-          <div className="absolute -top-1 -right-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 rounded-lg text-xs font-semibold z-10 animate-bounce-gentle shadow-lg border border-green-300/50 transition-all duration-300">
+          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-2 rounded-lg text-sm font-bold z-10 animate-bounce-gentle shadow-2xl border border-green-300/60 transition-all duration-300 backdrop-blur-sm">
             🏆 Mais Vendido
           </div>
-          <div className="relative transform transition-all duration-500 hover:scale-105 book-3d">
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-yellow-500/30 to-yellow-600/20 rounded-xl blur-xl animate-pulse-glow"></div>
-            <div className="relative bg-gradient-to-br from-gray-800 to-black p-2 rounded-xl shadow-2xl border border-yellow-400/50 transition-all duration-500 hover:border-yellow-400/80">
-              <img src="/lovable-uploads/e9fac0f7-2be2-4d7d-8821-bdae5c5eb525.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[200px] h-[300px] md:w-[280px] md:h-[380px] object-cover rounded-lg shadow-inner transition-all duration-500" />
-              <div className="absolute inset-2 bg-gradient-to-t from-black/30 via-transparent to-yellow-400/10 rounded-lg pointer-events-none"></div>
+          <div className="relative transform transition-all duration-700 hover:scale-105 book-3d card-hover-effect">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 via-yellow-500/40 to-yellow-600/30 rounded-2xl blur-2xl animate-glow-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 via-transparent to-yellow-500/20 rounded-2xl blur-xl animate-pulse-slow"></div>
+            <div className="relative bg-gradient-to-br from-gray-800 to-black p-3 rounded-2xl shadow-2xl border border-yellow-400/60 transition-all duration-700 hover:border-yellow-400/90 backdrop-blur-professional">
+              <img 
+                src="/lovable-uploads/8278a13c-b153-46e3-81e4-89436f8c70a2.png" 
+                alt="Jornada de Fé - 30 Dias de Reflexões" 
+                className="w-[220px] h-[320px] md:w-[300px] md:h-[400px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" 
+              />
+              <div className="absolute inset-3 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/15 rounded-xl pointer-events-none"></div>
+              <div className="absolute inset-3 border border-yellow-400/20 rounded-xl pointer-events-none animate-pulse-slow"></div>
             </div>
           </div>
         </div>
 
-        {/* Smaller CTA Button */}
-        <button onClick={scrollTo30Days} className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 text-lg mb-8 max-w-sm relative overflow-hidden">
+        {/* Enhanced CTA Button */}
+        <button onClick={scrollTo30Days} className="button-professional bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/30 text-lg mb-8 max-w-sm relative overflow-hidden backdrop-blur-sm">
           <span className="relative z-10">🙏 Iniciar Minha Jornada</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] animate-shimmer"></div>
         </button>
 
-        {/* Animated Arrow */}
-        <ArrowDown className="text-yellow-400 animate-bounce-gentle drop-shadow-2xl transition-all duration-300" size={28} />
+        {/* Enhanced Animated Arrow */}
+        <ArrowDown className="text-yellow-400 animate-bounce-gentle drop-shadow-2xl transition-all duration-300 hover:scale-110 hover:text-yellow-300" size={32} />
       </section>
 
       {/* Benefits Section */}
       <section className="py-16 px-4 relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12 text-gradient-gold drop-shadow-2xl transition-all duration-700 text-shadow-gold animate-fade-in-scale">
             BENÇÃOS DA JORNADA DE FÉ
           </h2>
           
@@ -237,13 +252,14 @@ const Index = () => {
       <section className="py-16 px-4 bg-gradient-to-br from-gray-900/40 to-black/40">
         <div className="max-w-4xl mx-auto text-center">
           <div className="relative inline-block mb-6">
-            <img src="/lovable-uploads/da2a4bc8-a689-4bbb-9088-33249e6d3775.png" alt="Gabriel Alcântara" className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-400 mx-auto object-cover shadow-2xl transition-transform duration-500 hover:scale-105" />
-            <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-2 py-1 rounded-full text-xs font-semibold shadow-lg transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 rounded-full blur-xl animate-pulse-glow"></div>
+            <img src="/lovable-uploads/da2a4bc8-a689-4bbb-9088-33249e6d3775.png" alt="Gabriel Alcântara" className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-yellow-400 mx-auto object-cover shadow-2xl transition-transform duration-500 hover:scale-105 card-hover-effect" />
+            <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-2 py-1 rounded-full text-xs font-semibold shadow-lg transition-all duration-300 backdrop-blur-sm">
               +3 Anos
             </div>
           </div>
           
-          <h3 className="text-2xl md:text-3xl font-black text-gradient-gold mb-2 drop-shadow-2xl transition-all duration-500">Gabriel Alcântara</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-gradient-gold mb-2 drop-shadow-2xl transition-all duration-500 text-shadow-gold">Gabriel Alcântara</h3>
           <p className="text-lg font-semibold text-gray-300 mb-6">Mentor, Palestrante e Especialista em Transformação</p>
           
           <div className="max-w-2xl mx-auto space-y-4 mb-8 font-serif text-gray-300">
@@ -396,156 +412,156 @@ const Index = () => {
         </div>
       </section>
 
-      {/* WhatsApp Testimonials Section */}
+      {/* WhatsApp Testimonials Section - Smaller */}
       <section className="py-12 px-4 relative bg-gradient-to-br from-gray-900/10 to-black/10">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-black text-center mb-10 text-gradient-gold drop-shadow-2xl">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl md:text-2xl font-black text-center mb-8 text-gradient-gold drop-shadow-2xl">
             CONVERSAS REAIS NO WHATSAPP
           </h2>
-          <p className="text-center text-gray-300 font-semibold mb-8 text-base">
+          <p className="text-center text-gray-300 font-semibold mb-6 text-sm">
             Veja o que nossos clientes estão falando sobre a transformação
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {/* WhatsApp Conversation 1 - Ana */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-4 rounded-2xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
-              <div className="bg-green-600 text-white p-3 rounded-t-xl mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* WhatsApp Conversation 1 - Ana - 40% smaller */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-3 rounded-xl border border-yellow-400/20 shadow-xl hover:scale-105 transition-all duration-500 card-hover-effect">
+              <div className="bg-green-600 text-white p-2 rounded-t-lg mb-2">
                 <div className="flex items-center gap-2">
-                  <img src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" alt="Ana Costa" className="w-8 h-8 rounded-full border-2 border-white" />
+                  <img src="/lovable-uploads/18fa3d03-d726-4cc3-93ce-982e7cec3edc.jpg" alt="Ana Costa" className="w-6 h-6 rounded-full border border-white" />
                   <div>
-                    <h4 className="font-bold text-white text-sm">Ana Costa</h4>
+                    <h4 className="font-bold text-white text-xs">Ana Costa</h4>
                     <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-2 p-3">
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+              <div className="space-y-1 p-2">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Gabriel, queria te agradecer! 🙏</p>
                   <span className="text-xs opacity-70">14:32</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Em apenas 15 dias senti uma paz que não tinha há anos. Minha família toda notou a diferença!</p>
                   <span className="text-xs opacity-70">14:33</span>
                 </div>
                 
-                <div className="bg-gray-600 text-white p-2 rounded-xl rounded-bl-md max-w-[80%]">
+                <div className="bg-gray-600 text-white p-2 rounded-lg rounded-bl-sm max-w-[80%]">
                   <p className="text-xs">Que bênção Ana! Deus é fiel 🙌</p>
                   <span className="text-xs opacity-70">14:35</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Este material realmente funciona! Vou recomendar para toda minha igreja ⛪</p>
                   <span className="text-xs opacity-70">14:36</span>
                 </div>
               </div>
               
-              <div className="mt-3 text-center">
+              <div className="mt-2 text-center">
                 <div className="text-yellow-400 text-xs font-bold">✅ Cliente Verificado • Compra em Nov/2024</div>
               </div>
             </div>
 
-            {/* WhatsApp Conversation 2 - Carlos */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-4 rounded-2xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
-              <div className="bg-green-600 text-white p-3 rounded-t-xl mb-3">
+            {/* WhatsApp Conversation 2 - Carlos - 40% smaller */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-3 rounded-xl border border-yellow-400/20 shadow-xl hover:scale-105 transition-all duration-500 card-hover-effect">
+              <div className="bg-green-600 text-white p-2 rounded-t-lg mb-2">
                 <div className="flex items-center gap-2">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&auto=format" alt="Carlos Silva" className="w-6 h-6 rounded-full border border-white object-cover" />
                   <div>
-                    <h4 className="font-bold text-white text-sm">Carlos Silva</h4>
+                    <h4 className="font-bold text-white text-xs">Carlos Silva</h4>
                     <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-2 p-3">
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+              <div className="space-y-1 p-2">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Cara, eu era cético sobre essas coisas... 🤔</p>
                   <span className="text-xs opacity-70">09:15</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Mas depois de 20 dias, minha ansiedade diminuiu MUITO. Durmo melhor e me sinto mais conectado espiritualmente</p>
                   <span className="text-xs opacity-70">09:16</span>
                 </div>
                 
-                <div className="bg-gray-600 text-white p-2 rounded-xl rounded-bl-md max-w-[80%]">
+                <div className="bg-gray-600 text-white p-2 rounded-lg rounded-bl-sm max-w-[80%]">
                   <p className="text-xs">Deus sempre surpreende! 🙏</p>
                   <span className="text-xs opacity-70">09:18</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Valeu demais o investimento. Minha esposa também quer fazer! 👫</p>
                   <span className="text-xs opacity-70">09:19</span>
                 </div>
               </div>
               
-              <div className="mt-3 text-center">
+              <div className="mt-2 text-center">
                 <div className="text-yellow-400 text-xs font-bold">✅ Cliente Verificado • Compra em Dez/2024</div>
               </div>
             </div>
 
-            {/* WhatsApp Conversation 3 - Fernanda */}
-            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-4 rounded-2xl border border-yellow-400/20 shadow-2xl hover:scale-105 transition-all duration-500">
-              <div className="bg-green-600 text-white p-3 rounded-t-xl mb-3">
+            {/* WhatsApp Conversation 3 - Fernanda - 40% smaller */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-3 rounded-xl border border-yellow-400/20 shadow-xl hover:scale-105 transition-all duration-500 card-hover-effect">
+              <div className="bg-green-600 text-white p-2 rounded-t-lg mb-2">
                 <div className="flex items-center gap-2">
-                  <img src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face&auto=format" alt="Fernanda Lima" className="w-6 h-6 rounded-full border border-white object-cover" />
                   <div>
-                    <h4 className="font-bold text-white text-sm">Fernanda Lima</h4>
+                    <h4 className="font-bold text-white text-xs">Fernanda Lima</h4>
                     <p className="text-xs text-green-100">online</p>
                   </div>
                 </div>
               </div>
               
-              <div className="space-y-2 p-3">
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+              <div className="space-y-1 p-2">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Gabriel!! 😍</p>
                   <span className="text-xs opacity-70">16:42</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Comprei pensando "mais um livro religioso"... Que surpresa!</p>
                   <span className="text-xs opacity-70">16:43</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Os desafios são simples mas PODEROSOS. Meu casamento melhorou, minha relação com Deus também! 💑✨</p>
                   <span className="text-xs opacity-70">16:44</span>
                 </div>
                 
-                <div className="bg-gray-600 text-white p-2 rounded-xl rounded-bl-md max-w-[80%]">
+                <div className="bg-gray-600 text-white p-2 rounded-lg rounded-bl-sm max-w-[80%]">
                   <p className="text-xs">Glória a Deus! ✨🙌</p>
                   <span className="text-xs opacity-70">16:46</span>
                 </div>
                 
-                <div className="bg-green-500 text-white p-2 rounded-xl rounded-br-md max-w-[80%] ml-auto">
+                <div className="bg-green-500 text-white p-2 rounded-lg rounded-br-sm max-w-[80%] ml-auto">
                   <p className="text-xs">Já recomendei para 5 amigas! 👭</p>
                   <span className="text-xs opacity-70">16:47</span>
                 </div>
               </div>
               
-              <div className="mt-3 text-center">
+              <div className="mt-2 text-center">
                 <div className="text-yellow-400 text-xs font-bold">✅ Cliente Verificada • Compra em Dez/2024</div>
               </div>
             </div>
           </div>
 
-          {/* Social Proof Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-2xl font-black text-gradient-gold mb-2">1,000+</div>
+          {/* Social Proof Stats - Smaller */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-3 rounded-lg border border-yellow-400/20 shadow-xl card-hover-effect">
+              <div className="text-xl font-black text-gradient-gold mb-1">1,000+</div>
               <div className="text-gray-300 font-bold text-xs">Vidas Transformadas</div>
             </div>
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-2xl font-black text-gradient-gold mb-2">4.9⭐</div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-3 rounded-lg border border-yellow-400/20 shadow-xl card-hover-effect">
+              <div className="text-xl font-black text-gradient-gold mb-1">4.9⭐</div>
               <div className="text-gray-300 font-bold text-xs">Avaliação Média</div>
             </div>
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-2xl font-black text-gradient-gold mb-2">98%</div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-3 rounded-lg border border-yellow-400/20 shadow-xl card-hover-effect">
+              <div className="text-xl font-black text-gradient-gold mb-1">98%</div>
               <div className="text-gray-300 font-bold text-xs">Recomendam</div>
             </div>
-            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-4 rounded-xl border border-yellow-400/20 shadow-2xl">
-              <div className="text-2xl font-black text-gradient-gold mb-2">30</div>
+            <div className="text-center bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-3 rounded-lg border border-yellow-400/20 shadow-xl card-hover-effect">
+              <div className="text-xl font-black text-gradient-gold mb-1">30</div>
               <div className="text-gray-300 font-bold text-xs">Dias de Conteúdo</div>
             </div>
           </div>
@@ -738,9 +754,73 @@ const Index = () => {
         </div>
       </section>
 
+      {/* New Affiliate Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-purple-900/20 to-blue-900/20 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/30 shadow-2xl transition-all duration-500 card-hover-effect">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Users className="text-purple-400" size={48} />
+              <TrendingUp className="text-green-400" size={48} />
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-6 text-gradient-gold drop-shadow-2xl text-shadow-gold">
+              QUER SER NOSSO AFILIADO?
+            </h2>
+            
+            <p className="text-xl font-bold text-gray-300 mb-6 leading-relaxed">
+              Ganhe <span className="text-green-400 font-black text-2xl">40% de comissão</span> divulgando nossos produtos de transformação espiritual!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-4 rounded-xl border border-purple-400/20">
+                <div className="text-3xl mb-2">💰</div>
+                <div className="font-bold text-purple-300 text-sm">Comissões Altas</div>
+                <div className="text-gray-300 text-xs">Até 40% por venda</div>
+              </div>
+              <div className="bg-gradient-to-br from-green-900/30 to-green-800/30 p-4 rounded-xl border border-green-400/20">
+                <div className="text-3xl mb-2">🚀</div>
+                <div className="font-bold text-green-300 text-sm">Material de Apoio</div>
+                <div className="text-gray-300 text-xs">Banners e copy prontos</div>
+              </div>
+              <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-4 rounded-xl border border-blue-400/20">
+                <div className="text-3xl mb-2">📊</div>
+                <div className="font-bold text-blue-300 text-sm">Relatórios Detalhados</div>
+                <div className="text-gray-300 text-xs">Acompanhe suas vendas</div>
+              </div>
+            </div>
+            
+            <a 
+              href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="button-professional bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 text-lg inline-block relative overflow-hidden backdrop-blur-sm"
+            >
+              <span className="relative z-10">💼 QUERO SER AFILIADO AGORA!</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced Footer */}
       <footer className="py-12 px-4 bg-black border-t border-gray-800">
         <div className="max-w-6xl mx-auto">
+          {/* Affiliate Link in Footer */}
+          <div className="text-center mb-8">
+            <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-6 rounded-xl border border-purple-400/20 inline-block shadow-xl">
+              <h4 className="font-black text-purple-400 mb-3">💼 Programa de Afiliados</h4>
+              <p className="text-gray-300 text-sm mb-4">Ganhe 40% de comissão divulgando nossos produtos!</p>
+              <a 
+                href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 text-sm inline-block"
+              >
+                Seja Afiliado
+              </a>
+            </div>
+          </div>
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
               <h4 className="font-black text-gradient-gold mb-4">Links Úteis</h4>

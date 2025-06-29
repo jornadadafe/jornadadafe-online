@@ -783,14 +783,14 @@ const Index = () => {
             </h2>
             
             <p className="text-xl font-bold text-gray-300 mb-6 leading-relaxed">
-              Ganhe <span className="text-green-400 font-black text-2xl">40% de comissão</span> divulgando nossos produtos de transformação espiritual!
+              Ganhe <span className="text-green-400 font-black text-2xl">60% de comissão</span> divulgando nossos produtos de transformação espiritual!
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-4 rounded-xl border border-purple-400/20">
                 <div className="text-3xl mb-2">💰</div>
                 <div className="font-bold text-purple-300 text-sm">Comissões Altas</div>
-                <div className="text-gray-300 text-xs">Até 40% por venda</div>
+                <div className="text-gray-300 text-xs">Até 60% por venda</div>
               </div>
               <div className="bg-gradient-to-br from-green-900/30 to-green-800/30 p-4 rounded-xl border border-green-400/20">
                 <div className="text-3xl mb-2">🚀</div>
@@ -817,13 +817,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Affiliate Link in Footer */}
           <div className="text-center mb-8">
-            <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-6 rounded-xl border border-purple-400/20 inline-block shadow-xl">
-              <h4 className="font-black text-purple-400 mb-3">💼 Programa de Afiliados</h4>
-              <p className="text-gray-300 text-sm mb-4">Ganhe 40% de comissão divulgando nossos produtos!</p>
-              <a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 text-sm inline-block">
-                Seja Afiliado
-              </a>
-            </div>
+            
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">

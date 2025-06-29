@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin, AlertTriangle, Users, TrendingUp } from 'lucide-react';
@@ -7,17 +8,20 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
+
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 10,
     seconds: 0
   });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     suggestion: ''
   });
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
@@ -42,6 +46,7 @@ const Index = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
@@ -53,77 +58,76 @@ const Index = () => {
       });
     }
   };
+
   const scrollTo30Days = () => {
     document.getElementById('30-days-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToPurchase = () => {
     document.getElementById('purchase-section')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-  return <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Enhanced Animated Background Elements */}
+
+  return (
+    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+      {/* Enhanced Animated Background Elements - More Subtle */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {/* Animated geometric shapes */}
-        <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-yellow-600/5 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/15 to-yellow-400/8 rounded-full animate-bounce-gentle blur-lg" style={{
-        animationDelay: '1s'
-      }}></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-yellow-300/8 to-yellow-500/12 rounded-full animate-pulse-slow blur-2xl"></div>
-        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/20 to-yellow-400/10 rounded-full animate-float blur-md" style={{
-        animationDelay: '2s'
-      }}></div>
-        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/12 to-yellow-300/8 rounded-full animate-bounce-gentle blur-xl" style={{
-        animationDelay: '3s'
-      }}></div>
+        {/* Subtle animated geometric shapes */}
+        <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-yellow-400/8 to-yellow-600/4 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/10 to-yellow-400/6 rounded-full animate-bounce-gentle blur-lg" style={{
+          animationDelay: '1s'
+        }}></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-yellow-300/6 to-yellow-500/8 rounded-full animate-pulse-slow blur-2xl"></div>
+        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/12 to-yellow-400/8 rounded-full animate-float blur-md" style={{
+          animationDelay: '2s'
+        }}></div>
+        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/8 to-yellow-300/6 rounded-full animate-bounce-gentle blur-xl" style={{
+          animationDelay: '3s'
+        }}></div>
         
-        {/* Floating light rays */}
-        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/20 via-transparent to-transparent animate-pulse-slow" style={{
-        animationDelay: '0.5s'
-      }}></div>
-        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/15 via-transparent to-transparent animate-pulse-slow" style={{
-        animationDelay: '1.5s'
-      }}></div>
-        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent animate-pulse-slow" style={{
-        animationDelay: '2.5s'
-      }}></div>
+        {/* Subtle light rays */}
+        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/15 via-transparent to-transparent animate-pulse-slow" style={{
+          animationDelay: '0.5s'
+        }}></div>
+        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/10 via-transparent to-transparent animate-pulse-slow" style={{
+          animationDelay: '1.5s'
+        }}></div>
+        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/8 via-transparent to-transparent animate-pulse-slow" style={{
+          animationDelay: '2.5s'
+        }}></div>
         
-        {/* Animated stars */}
-        <div className="absolute top-20 left-1/3 text-yellow-400/30 animate-pulse" style={{
-        animationDelay: '1s'
-      }}>✨</div>
-        <div className="absolute top-80 right-1/4 text-yellow-300/40 animate-pulse" style={{
-        animationDelay: '2s'
-      }}>⭐</div>
-        <div className="absolute bottom-60 left-1/2 text-yellow-500/25 animate-pulse" style={{
-        animationDelay: '3s'
-      }}>✨</div>
-        <div className="absolute top-40 left-10 text-yellow-400/35 animate-pulse" style={{
-        animationDelay: '0.5s'
-      }}>⭐</div>
-        <div className="absolute bottom-40 right-20 text-yellow-300/30 animate-pulse" style={{
-        animationDelay: '2.5s'
-      }}>✨</div>
+        {/* Flowing gradient waves */}
+        <div className="absolute top-20 left-0 w-full h-32 bg-gradient-to-r from-transparent via-yellow-400/5 to-transparent transform rotate-12 animate-pulse-slow"></div>
+        <div className="absolute bottom-40 right-0 w-full h-24 bg-gradient-to-l from-transparent via-yellow-300/4 to-transparent transform -rotate-6 animate-pulse-slow" style={{
+          animationDelay: '2s'
+        }}></div>
+        
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(251, 191, 36, 0.3) 1px, transparent 0)',
+          backgroundSize: '50px 50px'
+        }}></div>
         
         {/* Moving gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/3 via-transparent to-yellow-800/3 animate-pulse-slow"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/2 to-transparent animate-pulse-slow" style={{
-        animationDelay: '1s'
-      }}></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/2 via-transparent to-yellow-800/2 animate-pulse-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/1 to-transparent animate-pulse-slow" style={{
+          animationDelay: '1s'
+        }}></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         
-        {/* Animated cross symbols */}
-        <div className="absolute top-32 right-16 text-yellow-400/20 text-2xl animate-float" style={{
-        animationDelay: '1.5s'
-      }}>✝</div>
-        <div className="absolute bottom-32 left-12 text-yellow-300/25 text-xl animate-bounce-gentle" style={{
-        animationDelay: '2.5s'
-      }}>✝</div>
-        <div className="absolute top-96 left-1/4 text-yellow-500/15 text-lg animate-pulse" style={{
-        animationDelay: '3.5s'
-      }}>✝</div>
+        {/* Subtle particle effects */}
+        <div className="absolute top-32 right-16 w-2 h-2 bg-yellow-400/20 rounded-full animate-pulse" style={{
+          animationDelay: '1.5s'
+        }}></div>
+        <div className="absolute bottom-32 left-12 w-1 h-1 bg-yellow-300/25 rounded-full animate-pulse" style={{
+          animationDelay: '2.5s'
+        }}></div>
+        <div className="absolute top-96 left-1/4 w-1.5 h-1.5 bg-yellow-500/15 rounded-full animate-pulse" style={{
+          animationDelay: '3.5s'
+        }}></div>
       </div>
 
       {/* Hero Section */}
@@ -168,12 +172,6 @@ const Index = () => {
               <span className="text-gradient-gold block drop-shadow-2xl text-shadow-gold">JORNADA DE FÉ</span>
               <span className="text-gradient-gold block drop-shadow-2xl text-shadow-gold">30 DIAS DE REFLEXÕES</span>
             </h1>
-          </div>
-          
-          <div className="flex items-center justify-center gap-2 text-yellow-400 text-sm font-medium italic mb-6">
-            <Star size={16} className="animate-pulse" />
-            <span>Inspirado na franquia: "Café com Deus Pai"</span>
-            <Star size={16} className="animate-pulse" />
           </div>
         </div>
 
@@ -384,28 +382,36 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[{
-            title: "Dias 1-10: Fundamentos da Fé",
-            items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
-          }, {
-            title: "Dias 11-20: Crescimento Espiritual",
-            items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
-          }, {
-            title: "Dias 21-30: Vida Abundante",
-            items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
-          }].map((module, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
+            {[
+              {
+                title: "Dias 1-10: Fundamentos da Fé",
+                items: ["Conhecendo a Deus", "O Poder da Oração", "Confiança Absoluta", "Gratidão Diária", "Perdão Libertador"]
+              },
+              {
+                title: "Dias 11-20: Crescimento Espiritual", 
+                items: ["Intimidade com Deus", "Sabedoria Divina", "Paciência e Esperança", "Amor Incondicional", "Propósito de Vida"]
+              },
+              {
+                title: "Dias 21-30: Vida Abundante",
+                items: ["Generoso e Humilde", "Paz Interior", "Fé Inabalável", "Testemunha Viva", "Nova Criatura"]
+              }
+            ].map((module, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-transform duration-300 shadow-2xl">
                 <CardHeader>
                   <CardTitle className="text-gradient-gold font-black">{module.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {module.items.map((item, idx) => <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
+                    {module.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2 font-semibold text-gray-300">
                         <Star className="text-yellow-400" size={16} />
                         {item}
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-12">
@@ -602,23 +608,29 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {[{
-            title: "Guia Completo de Oração Transformadora",
-            value: "R$ 67,00",
-            description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
-          }, {
-            title: "30 Versículos de Poder para Memorizar",
-            value: "R$ 47,00",
-            description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
-          }, {
-            title: "Playlist Cristã Exclusiva - Adoração Profunda",
-            value: "R$ 37,00",
-            description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
-          }, {
-            title: "Guia de Jejum e Meditação Cristã",
-            value: "R$ 87,00",
-            description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
-          }].map((bonus, index) => <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
+            {[
+              {
+                title: "Guia Completo de Oração Transformadora",
+                value: "R$ 67,00",
+                description: "Aprenda as técnicas mais poderosas de oração que transformaram a vida de milhares de cristãos pelo mundo."
+              },
+              {
+                title: "30 Versículos de Poder para Memorizar",
+                value: "R$ 47,00",
+                description: "Cartões digitais com os versículos mais impactantes para ter sempre em mente e fortalecer sua fé a qualquer momento."
+              },
+              {
+                title: "Playlist Cristã Exclusiva - Adoração Profunda",
+                value: "R$ 37,00",
+                description: "Músicas cristãs cuidadosamente selecionadas para acompanhar sua jornada de 30 dias e elevar sua adoração."
+              },
+              {
+                title: "Guia de Jejum e Meditação Cristã",
+                value: "R$ 87,00",
+                description: "Manual completo para praticar jejum e meditação de forma segura e espiritualmente eficaz, fortalecendo sua conexão com Deus."
+              }
+            ].map((bonus, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 hover:scale-105 transition-all duration-500 shadow-2xl">
                 <CardHeader className="pb-3">
                   <div className="flex justify-between items-start gap-4">
                     <CardTitle className="text-gradient-gold font-black text-base leading-tight">{bonus.title}</CardTitle>
@@ -633,7 +645,8 @@ const Index = () => {
                 <CardContent className="pt-0">
                   <p className="font-medium text-gray-300 text-sm leading-relaxed">{bonus.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center">
@@ -655,18 +668,18 @@ const Index = () => {
           
           <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 mb-8 shadow-2xl transition-all duration-500">
             <div className="mb-6">
-              <div className="text-gray-400 line-through text-2xl mb-2">De R$ 335,90</div>
-              <div className="text-5xl md:text-6xl font-black text-gradient-gold mb-4 drop-shadow-2xl transition-all duration-700">R$ 29,90</div>
-              <div className="text-xl font-bold text-green-400">Economia de R$ 305,00 (91% OFF)</div>
+              <div className="text-gray-400 line-through text-2xl mb-2">De R$ 277,90</div>
+              <div className="text-5xl md:text-6xl font-black text-gradient-gold mb-4 drop-shadow-2xl transition-all duration-700">R$ 39,90</div>
+              <div className="text-xl font-bold text-green-400">Economia de R$ 238,00 (86% OFF)</div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 block text-center relative overflow-hidden">
-                <span className="relative z-10">💳 CARTÃO (3x R$ 9,97)</span>
+                <span className="relative z-10">💳 CARTÃO (3x R$ 13,30)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
               <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 block text-center shadow-lg shadow-green-500/25 relative overflow-hidden">
-                <span className="relative z-10">🔷 PIX (R$ 29,90)</span>
+                <span className="relative z-10">🔷 PIX (R$ 39,90)</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
             </div>
@@ -709,29 +722,37 @@ const Index = () => {
           </h2>
           
           <Accordion type="single" collapsible className="space-y-4">
-            {[{
-            question: "Como funciona a Jornada de Fé?",
-            answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
-          }, {
-            question: "Preciso ter conhecimento bíblico avançado?",
-            answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
-          }, {
-            question: "Como recebo o material após a compra?",
-            answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
-          }, {
-            question: "Posso presentear alguém com este material?",
-            answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
-          }, {
-            question: "A garantia é real mesmo?",
-            answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
-          }].map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
+            {[
+              {
+                question: "Como funciona a Jornada de Fé?",
+                answer: "São 30 dias de conteúdo, onde cada dia você receberá um versículo bíblico, uma reflexão profunda baseada nesse versículo e um desafio prático para aplicar em sua vida. É simples, mas transformador."
+              },
+              {
+                question: "Preciso ter conhecimento bíblico avançado?",
+                answer: "Não! O material foi criado para pessoas de todos os níveis de conhecimento bíblico. A linguagem é acessível e pode ser compreendida por crianças, jovens e adultos."
+              },
+              {
+                question: "Como recebo o material após a compra?",
+                answer: "Imediatamente após a confirmação do pagamento, você receberá um email com o link para download do material em PDF. O acesso é vitalício."
+              },
+              {
+                question: "Posso presentear alguém com este material?",
+                answer: "Claro! Este é o presente perfeito para familiares e amigos que precisam fortalecer a fé. Você pode compartilhar o material ou comprar como presente."
+              },
+              {
+                question: "A garantia é real mesmo?",
+                answer: "Sim! Você tem 7 dias para testar o material. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do seu dinheiro, sem questionamentos."
+              }
+            ].map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-6 shadow-2xl transition-all duration-500">
                 <AccordionTrigger className="text-gradient-gold font-black text-left hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-300 font-semibold">
                   {faq.answer}
                 </AccordionContent>
-              </AccordionItem>)}
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
@@ -748,18 +769,29 @@ const Index = () => {
             </p>
             
             <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
-              <Input type="text" placeholder="Seu nome completo" value={formData.name} onChange={e => setFormData({
-              ...formData,
-              name: e.target.value
-            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
-              <Input type="email" placeholder="Seu melhor email" value={formData.email} onChange={e => setFormData({
-              ...formData,
-              email: e.target.value
-            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" required />
-              <Textarea placeholder="Sugestões de novos produtos (opcional)" value={formData.suggestion} onChange={e => setFormData({
-              ...formData,
-              suggestion: e.target.value
-            })} className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" rows={3} />
+              <Input 
+                type="text" 
+                placeholder="Seu nome completo" 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" 
+                required 
+              />
+              <Input 
+                type="email" 
+                placeholder="Seu melhor email" 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" 
+                required 
+              />
+              <Textarea 
+                placeholder="Sugestões de novos produtos (opcional)" 
+                value={formData.suggestion}
+                onChange={(e) => setFormData({...formData, suggestion: e.target.value})}
+                className="bg-gray-800 border-yellow-400/30 text-white font-semibold shadow-2xl" 
+                rows={3} 
+              />
               <Button type="submit" className="btn-gold w-full shadow-2xl shadow-yellow-500/50 relative overflow-hidden transition-all duration-300">
                 <span className="relative z-10">FAZER PARTE DA LISTA VIP 🌟</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
@@ -817,7 +849,13 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Affiliate Link in Footer */}
           <div className="text-center mb-8">
-            
+            <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-6 rounded-xl border border-purple-400/20 max-w-md mx-auto">
+              <h3 className="text-lg font-black text-gradient-gold mb-3">Seja Nosso Parceiro</h3>
+              <p className="text-gray-300 text-sm mb-4">Ganhe 60% de comissão divulgando nossos produtos!</p>
+              <Link to="/afiliado" className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm inline-block">
+                Quero Ser Afiliado
+              </Link>
+            </div>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
@@ -860,6 +898,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

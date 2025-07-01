@@ -180,7 +180,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Enhanced Product Image with Professional Effects */}
+        {/* Enhanced Product Image with Professional Effects - RESIZED */}
         <div className="relative mb-8 perspective-1000">
           <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-2 rounded-lg text-sm font-bold z-10 animate-bounce-gentle shadow-2xl border border-green-300/60 transition-all duration-300 backdrop-blur-sm">
             🏆 Mais Vendido
@@ -188,10 +188,10 @@ const Index = () => {
           <div className="relative transform transition-all duration-700 hover:scale-105 book-3d card-hover-effect">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/40 via-yellow-500/50 to-yellow-600/40 rounded-2xl blur-2xl animate-glow-pulse"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 via-transparent to-yellow-500/30 rounded-2xl blur-xl animate-pulse-slow"></div>
-            <div className="relative bg-gradient-to-br from-gray-800 to-black p-3 rounded-2xl shadow-2xl border border-yellow-400/60 transition-all duration-700 hover:border-yellow-400/90 backdrop-blur-professional">
-              <img src="/lovable-uploads/7796e9e4-42e2-4337-b8e9-3a1b60c906f1.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[220px] h-[320px] md:w-[300px] md:h-[400px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
-              <div className="absolute inset-3 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/15 rounded-xl pointer-events-none"></div>
-              <div className="absolute inset-3 border border-yellow-400/20 rounded-xl pointer-events-none animate-pulse-slow"></div>
+            <div className="relative bg-gradient-to-br from-gray-800 to-black p-4 rounded-2xl shadow-2xl border border-yellow-400/60 transition-all duration-700 hover:border-yellow-400/90 backdrop-blur-professional">
+              <img src="/lovable-uploads/7796e9e4-42e2-4337-b8e9-3a1b60c906f1.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[300px] h-[400px] md:w-[400px] md:h-[520px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
+              <div className="absolute inset-4 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/15 rounded-xl pointer-events-none"></div>
+              <div className="absolute inset-4 border border-yellow-400/20 rounded-xl pointer-events-none animate-pulse-slow"></div>
             </div>
           </div>
         </div>
@@ -806,7 +806,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Affiliate Proposal Section - NEW */}
+      {/* Enhanced Affiliate Proposal Section - SIMPLIFIED */}
       <section className="py-16 px-4 bg-gradient-to-br from-purple-900/30 to-blue-900/30 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/40 shadow-2xl transition-all duration-500 card-hover-effect">
@@ -847,7 +847,7 @@ const Index = () => {
             </div>
 
             <div className="bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 rounded-xl p-6 mb-8">
-              <h3 className="text-xl font-black text-yellow-400 mb-3">💡 Imagine só:</h3>
+              <h3 className="text-xl font-black text-yellow-400 mb-3">💡 Potencial de Ganhos:</h3>
               <p className="text-gray-300 font-semibold leading-relaxed">
                 Indicando apenas <span className="text-yellow-400 font-black">5 pessoas por semana</span>, você fatura 
                 <span className="text-green-400 font-black text-xl"> R$ 119,70 semanais</span> ou 

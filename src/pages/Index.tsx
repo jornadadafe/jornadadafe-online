@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin, AlertTriangle, Users, TrendingUp } from 'lucide-react';
@@ -183,7 +182,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/12 via-yellow-500/14 to-yellow-600/12 rounded-2xl blur-xl animate-glow-pulse -m-3"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/10 via-transparent to-yellow-500/10 rounded-2xl blur-lg animate-pulse-slow -m-1.5"></div>
             <div className="relative bg-gradient-to-br from-gray-800 to-black p-4 rounded-2xl shadow-2xl border border-yellow-400/60 transition-all duration-700 hover:border-yellow-400/90 backdrop-blur-professional">
-              <img src="/lovable-uploads/faf426bd-d45d-446c-8f85-8a625f30a76e.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[300px] h-[400px] md:w-[400px] md:h-[520px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
+              <img src="/lovable-uploads/7796e9e4-42e2-4337-b8e9-3a1b60c906f1.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[300px] h-[400px] md:w-[400px] md:h-[520px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
               <div className="absolute inset-4 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/15 rounded-xl pointer-events-none"></div>
               <div className="absolute inset-4 border border-yellow-400/20 rounded-xl pointer-events-none animate-pulse-slow"></div>
             </div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { ArrowDown, Shield, Star, Clock, Heart, Gift, CheckCircle, XCircle, Mail, Phone, MapPin, AlertTriangle, Users, TrendingUp } from 'lucide-react';
@@ -72,61 +71,67 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Enhanced Animated Background Elements - More Subtle */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-x-hidden relative">
+      {/* Enhanced Brighter Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {/* Subtle animated geometric shapes */}
-        <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-yellow-400/8 to-yellow-600/4 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/10 to-yellow-400/6 rounded-full animate-bounce-gentle blur-lg" style={{
+        {/* Brighter animated geometric shapes with more opacity */}
+        <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-yellow-600/15 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-40 right-10 w-24 h-24 bg-gradient-to-br from-yellow-500/25 to-yellow-400/18 rounded-full animate-bounce-gentle blur-lg" style={{
           animationDelay: '1s'
         }}></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-yellow-300/6 to-yellow-500/8 rounded-full animate-pulse-slow blur-2xl"></div>
-        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/12 to-yellow-400/8 rounded-full animate-float blur-md" style={{
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-yellow-300/18 to-yellow-500/20 rounded-full animate-pulse-slow blur-2xl"></div>
+        <div className="absolute top-60 right-40 w-16 h-16 bg-gradient-to-br from-yellow-600/30 to-yellow-400/22 rounded-full animate-float blur-md" style={{
           animationDelay: '2s'
         }}></div>
-        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/8 to-yellow-300/6 rounded-full animate-bounce-gentle blur-xl" style={{
+        <div className="absolute bottom-40 right-5 w-28 h-28 bg-gradient-to-br from-yellow-500/20 to-yellow-300/18 rounded-full animate-bounce-gentle blur-xl" style={{
           animationDelay: '3s'
         }}></div>
         
-        {/* Subtle light rays */}
-        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/15 via-transparent to-transparent animate-pulse-slow" style={{
+        {/* Brighter light rays */}
+        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-400/30 via-yellow-300/10 to-transparent animate-pulse-slow" style={{
           animationDelay: '0.5s'
         }}></div>
-        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/10 via-transparent to-transparent animate-pulse-slow" style={{
+        <div className="absolute top-0 right-1/3 w-0.5 h-full bg-gradient-to-b from-yellow-300/25 via-yellow-200/8 to-transparent animate-pulse-slow" style={{
           animationDelay: '1.5s'
         }}></div>
-        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/8 via-transparent to-transparent animate-pulse-slow" style={{
+        <div className="absolute top-0 left-2/3 w-0.5 h-full bg-gradient-to-b from-yellow-500/20 via-yellow-400/6 to-transparent animate-pulse-slow" style={{
           animationDelay: '2.5s'
         }}></div>
         
-        {/* Flowing gradient waves */}
-        <div className="absolute top-20 left-0 w-full h-32 bg-gradient-to-r from-transparent via-yellow-400/5 to-transparent transform rotate-12 animate-pulse-slow"></div>
-        <div className="absolute bottom-40 right-0 w-full h-24 bg-gradient-to-l from-transparent via-yellow-300/4 to-transparent transform -rotate-6 animate-pulse-slow" style={{
+        {/* Brighter flowing gradient waves */}
+        <div className="absolute top-20 left-0 w-full h-32 bg-gradient-to-r from-transparent via-yellow-400/12 to-transparent transform rotate-12 animate-pulse-slow"></div>
+        <div className="absolute bottom-40 right-0 w-full h-24 bg-gradient-to-l from-transparent via-yellow-300/10 to-transparent transform -rotate-6 animate-pulse-slow" style={{
           animationDelay: '2s'
         }}></div>
         
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(251, 191, 36, 0.3) 1px, transparent 0)',
+        {/* Enhanced grid pattern overlay with more visibility */}
+        <div className="absolute inset-0 opacity-[0.06]" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(251, 191, 36, 0.6) 1px, transparent 0)',
           backgroundSize: '50px 50px'
         }}></div>
         
-        {/* Moving gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/2 via-transparent to-yellow-800/2 animate-pulse-slow"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/1 to-transparent animate-pulse-slow" style={{
+        {/* Brighter moving gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/6 via-transparent to-yellow-800/5 animate-pulse-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-700/4 to-transparent animate-pulse-slow" style={{
           animationDelay: '1s'
         }}></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
         
-        {/* Subtle particle effects */}
-        <div className="absolute top-32 right-16 w-2 h-2 bg-yellow-400/20 rounded-full animate-pulse" style={{
+        {/* More visible particle effects */}
+        <div className="absolute top-32 right-16 w-3 h-3 bg-yellow-400/40 rounded-full animate-pulse" style={{
           animationDelay: '1.5s'
         }}></div>
-        <div className="absolute bottom-32 left-12 w-1 h-1 bg-yellow-300/25 rounded-full animate-pulse" style={{
+        <div className="absolute bottom-32 left-12 w-2 h-2 bg-yellow-300/45 rounded-full animate-pulse" style={{
           animationDelay: '2.5s'
         }}></div>
-        <div className="absolute top-96 left-1/4 w-1.5 h-1.5 bg-yellow-500/15 rounded-full animate-pulse" style={{
+        <div className="absolute top-96 left-1/4 w-2.5 h-2.5 bg-yellow-500/35 rounded-full animate-pulse" style={{
           animationDelay: '3.5s'
+        }}></div>
+        
+        {/* Additional ambient lighting */}
+        <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-gradient-radial from-yellow-400/8 to-transparent rounded-full blur-3xl animate-pulse-slow transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-radial from-yellow-300/6 to-transparent rounded-full blur-2xl animate-pulse-slow" style={{
+          animationDelay: '2s'
         }}></div>
       </div>
 
@@ -181,10 +186,10 @@ const Index = () => {
             🏆 Mais Vendido
           </div>
           <div className="relative transform transition-all duration-700 hover:scale-105 book-3d card-hover-effect">
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 via-yellow-500/40 to-yellow-600/30 rounded-2xl blur-2xl animate-glow-pulse"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 via-transparent to-yellow-500/20 rounded-2xl blur-xl animate-pulse-slow"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/40 via-yellow-500/50 to-yellow-600/40 rounded-2xl blur-2xl animate-glow-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 via-transparent to-yellow-500/30 rounded-2xl blur-xl animate-pulse-slow"></div>
             <div className="relative bg-gradient-to-br from-gray-800 to-black p-3 rounded-2xl shadow-2xl border border-yellow-400/60 transition-all duration-700 hover:border-yellow-400/90 backdrop-blur-professional">
-              <img src="/lovable-uploads/8278a13c-b153-46e3-81e4-89436f8c70a2.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[220px] h-[320px] md:w-[300px] md:h-[400px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
+              <img src="/lovable-uploads/7796e9e4-42e2-4337-b8e9-3a1b60c906f1.png" alt="Jornada de Fé - 30 Dias de Reflexões" className="w-[220px] h-[320px] md:w-[300px] md:h-[400px] object-cover rounded-xl shadow-inner transition-all duration-700 hover:shadow-glow" />
               <div className="absolute inset-3 bg-gradient-to-t from-black/40 via-transparent to-yellow-400/15 rounded-xl pointer-events-none"></div>
               <div className="absolute inset-3 border border-yellow-400/20 rounded-xl pointer-events-none animate-pulse-slow"></div>
             </div>
@@ -801,45 +806,63 @@ const Index = () => {
         </div>
       </section>
 
-      {/* New Affiliate Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-purple-900/20 to-blue-900/20 relative">
+      {/* Enhanced Affiliate Proposal Section - NEW */}
+      <section className="py-16 px-4 bg-gradient-to-br from-purple-900/30 to-blue-900/30 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/30 shadow-2xl transition-all duration-500 card-hover-effect">
+          <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/40 shadow-2xl transition-all duration-500 card-hover-effect">
             <div className="flex items-center justify-center gap-3 mb-6">
               <Users className="text-purple-400" size={48} />
               <TrendingUp className="text-green-400" size={48} />
             </div>
             
             <h2 className="text-3xl md:text-4xl font-black text-center mb-6 text-gradient-gold drop-shadow-2xl text-shadow-gold">
-              QUER SER NOSSO AFILIADO?
+              🚀 TRANSFORME SUA PAIXÃO EM RENDA EXTRA!
             </h2>
             
-            <p className="text-xl font-bold text-gray-300 mb-6 leading-relaxed">
-              Ganhe <span className="text-green-400 font-black text-2xl">60% de comissão</span> divulgando nossos produtos de transformação espiritual!
+            <p className="text-xl font-bold text-gray-300 mb-4 leading-relaxed">
+              Você acredita no poder transformador da fé? Então por que não ajudar outras pessoas e ainda ganhar por isso?
+            </p>
+            
+            <p className="text-lg font-semibold text-gray-300 mb-6 leading-relaxed">
+              Como nosso afiliado, você ganha <span className="text-green-400 font-black text-2xl">60% de comissão</span> em cada venda! 
+              Isso significa <span className="text-yellow-400 font-black">R$ 23,94</span> para cada pessoa que você ajudar a transformar sua vida espiritual.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-4 rounded-xl border border-purple-400/20">
-                <div className="text-3xl mb-2">💰</div>
-                <div className="font-bold text-purple-300 text-sm">Comissões Altas</div>
-                <div className="text-gray-300 text-xs">Até 60% por venda</div>
+              <div className="bg-gradient-to-br from-purple-900/40 to-purple-800/40 p-6 rounded-xl border border-purple-400/30 transition-transform duration-300 hover:scale-105">
+                <div className="text-4xl mb-3">💰</div>
+                <div className="font-bold text-purple-300 text-lg mb-2">Comissões Altas</div>
+                <div className="text-gray-300">60% por venda = R$ 23,94</div>
               </div>
-              <div className="bg-gradient-to-br from-green-900/30 to-green-800/30 p-4 rounded-xl border border-green-400/20">
-                <div className="text-3xl mb-2">🚀</div>
-                <div className="font-bold text-green-300 text-sm">Material de Apoio</div>
-                <div className="text-gray-300 text-xs">Banners e copy prontos</div>
+              <div className="bg-gradient-to-br from-green-900/40 to-green-800/40 p-6 rounded-xl border border-green-400/30 transition-transform duration-300 hover:scale-105">
+                <div className="text-4xl mb-3">🎯</div>
+                <div className="font-bold text-green-300 text-lg mb-2">Material Pronto</div>
+                <div className="text-gray-300">Banners, textos e estratégias</div>
               </div>
-              <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-4 rounded-xl border border-blue-400/20">
-                <div className="text-3xl mb-2">📊</div>
-                <div className="font-bold text-blue-300 text-sm">Relatórios Detalhados</div>
-                <div className="text-gray-300 text-xs">Acompanhe suas vendas</div>
+              <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 p-6 rounded-xl border border-blue-400/30 transition-transform duration-300 hover:scale-105">
+                <div className="text-4xl mb-3">⚡</div>
+                <div className="font-bold text-blue-300 text-lg mb-2">Pagamento Rápido</div>
+                <div className="text-gray-300">Receba em até 7 dias úteis</div>
               </div>
             </div>
+
+            <div className="bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 rounded-xl p-6 mb-8">
+              <h3 className="text-xl font-black text-yellow-400 mb-3">💡 Imagine só:</h3>
+              <p className="text-gray-300 font-semibold leading-relaxed">
+                Indicando apenas <span className="text-yellow-400 font-black">5 pessoas por semana</span>, você fatura 
+                <span className="text-green-400 font-black text-xl"> R$ 119,70 semanais</span> ou 
+                <span className="text-green-400 font-black text-xl"> R$ 478,80 mensais</span> extra!
+              </p>
+            </div>
             
-            <a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="button-professional bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 text-lg inline-block relative overflow-hidden backdrop-blur-sm">
+            <a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="button-professional bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 text-lg inline-block relative overflow-hidden backdrop-blur-sm mb-4">
               <span className="relative z-10">💼 QUERO SER AFILIADO AGORA!</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
             </a>
+            
+            <p className="text-sm text-gray-400 font-semibold">
+              ⏱️ Cadastro gratuito • Aprovação em até 24h • Suporte completo
+            </p>
           </div>
         </div>
       </section>
@@ -852,9 +875,9 @@ const Index = () => {
             <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-6 rounded-xl border border-purple-400/20 max-w-md mx-auto">
               <h3 className="text-lg font-black text-gradient-gold mb-3">Seja Nosso Parceiro</h3>
               <p className="text-gray-300 text-sm mb-4">Ganhe 60% de comissão divulgando nossos produtos!</p>
-              <Link to="/afiliado" className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm inline-block">
-                Quero Ser Afiliado
-              </Link>
+              <a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm inline-block">
+                Torne-se um Afiliado
+              </a>
             </div>
           </div>
           
@@ -864,7 +887,7 @@ const Index = () => {
               <ul className="space-y-2">
                 <li><Link to="/sobre" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Sobre</Link></li>
                 <li><Link to="/contato" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Contato</Link></li>
-                <li><Link to="/afiliado" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Seja Afiliado</Link></li>
+                <li><a href="https://ev.braip.com/afiliados/convite/pro1vv47/use2128rk9" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 font-semibold transition-colors duration-300">Torne-se um Afiliado</a></li>
               </ul>
             </div>
             <div>

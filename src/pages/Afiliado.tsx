@@ -77,7 +77,7 @@ const Afiliado = () => {
               </div>
               <div className="text-center">
                 <Target className="text-purple-400 mx-auto mb-3" size={40} />
-                <div className="text-2xl font-black text-purple-400">R$ 17,94</div>
+                <div className="text-2xl font-black text-purple-400">R$ 11,94</div>
                 <div className="text-gray-300 font-bold">Por Cada Venda</div>
               </div>
               <div className="text-center">

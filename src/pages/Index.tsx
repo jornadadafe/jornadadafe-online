@@ -651,18 +651,23 @@ const Index = () => {
           
           <div className="bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm p-8 rounded-2xl border border-yellow-400/20 mb-8 shadow-2xl transition-all duration-500">
             <div className="mb-6">
-              <div className="text-gray-400 line-through text-2xl mb-2">De R$ 277,90</div>
-              <div className="text-5xl md:text-6xl font-black text-gradient-gold mb-4 drop-shadow-2xl transition-all duration-700">R$ 39,90</div>
-              <div className="text-xl font-bold text-green-400">Economia de R$ 238,00 (86% OFF)</div>
+              <div className="text-gray-400 line-through text-2xl mb-2">De R$ 67,00</div>
+              <div className="text-5xl md:text-6xl font-black text-gradient-gold mb-4 drop-shadow-2xl transition-all duration-700">R$ 19,90</div>
+              <div className="text-xl font-bold text-green-400">Economia de R$ 47,10 (70% OFF)</div>
+              <div className="bg-yellow-400/20 border border-yellow-400/40 rounded-lg p-4 mt-4">
+                <div className="text-lg font-bold text-yellow-400 text-center">
+                  💳 ou 3x de R$ 6,63 no cartão
+                </div>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/25 block text-center relative overflow-hidden">
-                <span className="relative z-10">💳 CARTÃO (3x R$ 13,30)</span>
+                <span className="relative z-10">💳 CARTÃO</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
               <a href="https://pay.braip.co/checkout/plaqd0wj/chevo0qd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 block text-center shadow-lg shadow-green-500/25 relative overflow-hidden">
-                <span className="relative z-10">🔷 PIX (R$ 39,90)</span>
+                <span className="relative z-10">📱 PIX</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
               </a>
             </div>
